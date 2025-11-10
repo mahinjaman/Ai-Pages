@@ -9,6 +9,7 @@ export const FREEBIES_URL = 'https://github.com/phoenixcoded/saasable-ui';
 export const DOCS_URL = 'https://phoenixcoded.gitbook.io/saasable ';
 const BLOCK_PATH = '/blocks';
 
+
 export const LANDING_PATH = {
   default: '/'
 };
@@ -22,12 +23,17 @@ export const PAGE_PATH = {
 
   // pages path
   aboutPage: '/about',
-  careerPage: '/career',
-  contactPage: '/contact',
-  faqPage: '/faq',
+  featuresPage: '/features',
   pricingPage: '/pricing',
+  templatesPage: '/templates',
+  resourcesPage: '/resources',
+  blogPage: '/blog',
+  contactPage: '/contact',
   privacyPolicyPage: '/privacy-policy',
-  termsConditionPage: '/terms-condition'
+  termsConditionPage: '/terms-condition',
+  successStoryPage: '/success-stories',
+  careerPage: '/career',
+  faqPage: '/faq'
 };
 
 export const PRIVIEW_PATH = {
