@@ -11,13 +11,13 @@ import LazySection from '@/components/LazySection';
 import useDataThemeMode from '@/hooks/useDataThemeMode';
 
 // @data
-import { faq, hero, integration, pricing, clientele, cta10 } from './data';
+import { faq, hero, integration, pricing, cta10 } from './data';
 import { Clientele8 } from '@/blocks/clientele';
 import { metrics3 } from './data/metrics';
 import Feature28 from '@/blocks/feature/Feature28';
 import { feature19 } from './data/feature';
 import { process1 } from './data/process';
-import { testimonial2 } from './data/testimonial';
+// import { testimonial2 } from './data/testimonial';
 
 /***************************  PAGE - MAIN  ***************************/
 
@@ -54,9 +54,10 @@ export default function Main() {
     <>
       <Hero17 {...hero} />
       <Clientele8
-        heading="StoreLine combines world-class cloud technology"
+        heading="We combines world-class cloud technology"
         caption="We’re on a mission to make e-commerce simple for every Bangladeshi entrepreneur. With StoreLine, anyone can start and grow an online business. no coding, no hassle"
-        clienteleList={clientele?.clienteleList}
+        // TODO Need to fix clientele list fetch issue
+        // clienteleList={clientele?.clienteleList}
       />
       <LazySection
         sections={[{ importFunc: () => import('@/blocks/metrics').then((module) => ({ default: module.Metrics3 })), props: metrics3 }]}
@@ -66,8 +67,10 @@ export default function Main() {
       <LazySection
         sections={[
           { importFunc: () => import('@/blocks/process').then((module) => ({ default: module.Process4 })), props: process1 },
-          { importFunc: () => import('@/blocks/integration').then((module) => ({ default: module.Integration3 })), props: integration },
-          { importFunc: () => import('@/blocks/testimonial').then((module) => ({ default: module.Testimonial2 })), props: testimonial2 }
+          { importFunc: () => import('@/blocks/integration').then((module) => ({ default: module.Integration3 })), props: integration }
+
+          // { importFunc: () => import('@/blocks/testimonial').then((module) => ({ default: module.Testimonial2 })), props: testimonial2 }
+
         ]}
         offset="200px"
       />

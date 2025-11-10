@@ -23,9 +23,12 @@ interface LazySectionProps {
 }
 
 export default function LazySection({ sections, fallback = <Loader />, offset = '0px', placeholderHeight = 400 }: LazySectionProps) {
+  
   const sectionList = useMemo(() => (Array.isArray(sections) ? sections : [sections]), [sections]);
+
   const [isVisible, setIsVisible] = useState(false);
   const [loadedComponents, setLoadedComponents] = useState<(ComponentType | null)[]>(Array(sectionList.length).fill(null));
+
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

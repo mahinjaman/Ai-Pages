@@ -27,7 +27,7 @@ export const hero = {
       </>
     )
   },
-  headLine: 'The All-in-One Serverless E-commerce Platform for Bangladesh',
+  headLine: 'The All-in-One Serverless E-commerce Platform',
   captionLine: 'Finally, an e-commerce platform that truly understands the Bangladeshi market and its unique challenges',
   primaryBtn: { children: 'Get Started — It’s Free', href: '/' },
   videoSrc: 'https://d2elhhoq00m1pj.cloudfront.net/saasable-intro.mp4',

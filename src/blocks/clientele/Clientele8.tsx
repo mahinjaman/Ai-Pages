@@ -18,7 +18,7 @@ import { ClienteleListProps } from '@/types/clientele';
 interface Props {
   heading: string;
   caption: string;
-  clienteleList: ClienteleListProps[];
+  clienteleList?: ClienteleListProps[];
 }
 
 /***************************  CLIENTELE - 8  ***************************/
@@ -52,7 +52,7 @@ export default function Clientele8({ heading, caption, clienteleList }: Props) {
   };
 
   return (
-    <ContainerWrapper sx={{ py: SECTION_COMMON_PY }}>
+    <ContainerWrapper sx={{ pt: SECTION_COMMON_PY, pb: 0 }}>
       <Stack
         sx={{
           gap: { xs: 3, sm: 4 },
@@ -70,22 +70,24 @@ export default function Clientele8({ heading, caption, clienteleList }: Props) {
           <Typeset {...{ heading, caption, stackProps: { sx: { textAlign: 'center' } } }} />
         </motion.div>
 
-        <motion.div
-          initial={{ x: 50, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-        >
-          <Slider {...settings}>
-            {clienteleList.map((item, index) => (
-              <GraphicsImage
-                key={index}
-                image={item.image}
-                sx={{ width: { xs: 78, sm: 126, lg: 216 }, height: { xs: 108, sm: 138, lg: 188 }, m: 'auto' }}
-              />
-            ))}
-          </Slider>
-        </motion.div>
+        {clienteleList && (
+          <motion.div
+            initial={{ x: 50, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+          >
+            <Slider {...settings}>
+              {clienteleList.map((item, index) => (
+                <GraphicsImage
+                  key={index}
+                  image={item.image}
+                  sx={{ width: { xs: 78, sm: 126, lg: 216 }, height: { xs: 108, sm: 138, lg: 188 }, m: 'auto' }}
+                />
+              ))}
+            </Slider>
+          </motion.div>
+        )}
       </Stack>
     </ContainerWrapper>
   );
