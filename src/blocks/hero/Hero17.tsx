@@ -165,7 +165,7 @@ export default function Hero17({ chip, headLine, captionLine, primaryBtn, videoS
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2, ease: 'linear' }}
               >
-                <Typography variant="h1" align="center" sx={{ maxWidth: 800 }}>
+                <Typography variant="h1" align="center" sx={{ maxWidth: 700 }}>
                   {headLine}
                 </Typography>
               </motion.div>

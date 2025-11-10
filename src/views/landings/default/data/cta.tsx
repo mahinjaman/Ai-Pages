@@ -71,8 +71,8 @@ export const cta5 = {
 };
 
 export const cta10 = {
-  heading: "Couldn't find the perfect role for you?",
-  caption: 'No worries – we encourage you to apply anyway! Your unique skills and talents might be just what we need.',
+  heading: 'Haven’t Started Yet? It’s Your Time.',
+  caption: 'You focus on your products, we’ll handle the tech. That’s how thousands of Bangladeshi sellers are trusted with StoreLine.',
   primaryBtn: { children: 'Send your Resume', href: '#', sx: { textTransform: 'none' } },
   secondaryBtn: { children: 'Contact us', href: '/contact', sx: { textTransform: 'none' } },
   image: { light: '/assets/images/graphics/ai/graphics15-light.svg', dark: '/assets/images/graphics/ai/graphics15-dark.svg' },

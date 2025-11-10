@@ -3,8 +3,9 @@ import SvgIcon from '@/components/SvgIcon';
 import { DOCS_URL } from '@/path';
 
 export const integration = {
-  headLine: 'Tailored for every industry',
-  captionLine: 'From project management to AI, see how our UI Kit helps you build SaaS applications tailored for a variety of industries.',
+  headLine: 'Local Integration',
+  captionLine:
+    'From delivering with courier to selling on Facebook or setting up GTM. StoreLine bridges every part of your journey, making online business easy and local-friendly.',
   primaryBtn: {
     children: 'Documentation',
     startIcon: <SvgIcon name="tabler-help" color="background.default" />,

@@ -7,92 +7,66 @@ export const faq = {
   defaultExpanded: 'Fees & Charges',
   faqList: [
     {
-      question: `Is ${branding.brandName} only for SaaS web apps?`,
-      answer: `While ${branding.brandName} is designed with SaaS applications in mind, it’s not limited to SaaS products. ${branding.brandName} is multipurpose and can be used for a variety of websites and applications, whether it’s for an agency, digital product, CRM, blog, AI platform, or any other system. ${branding.brandName} is versatile and adaptable to fit any use case, SaaS or not. It’s built for all types of projects!`,
+      question: `Do I need to buy a domain?`,
+      answer: `No worries, you can start with a free StoreLine subdomain (like yourstore.storeline.io).
+ And if you already have your own domain, you can easily connect it anytime.`,
       category: 'General'
     },
     {
-      question: `What makes ${branding.brandName} different from other UI Kits?`,
-      answer: `${branding.brandName} offers industry-specific templates, a React Material UI Kit, Figma UI Kit, and flexible customization options that cater to both front-end marketing and admin interfaces.`,
+      question: `Do I need my own hosting?`,
+      answer: `Not at all. StoreLine is a serverless platform, meaning we handle all the hosting, speed, and security for you. You just focus on your business. We'll take care of the tech.`,
       category: 'General'
     },
     {
-      question: `Is ${branding.brandName} suitable for both developers and designers?`,
-      answer: {
-        content: `Yes, ${branding.brandName} is built for both, with a Figma UI kit for designers and React code for developers.`,
-        type: 'list',
-        data: [
-          { primary: 'Figma UI Kit for Designers.' },
-          { primary: 'React Material UI Code for Developers.' },
-          { primary: 'Seamless Collaboration.' }
-        ]
-      },
+      question: `Can I customize my store design?`,
+      answer: `Yes! You can choose from beautiful, ready-made templates and easily customize them. No coding needed. Change colors, fonts, and layouts to match your brand in just a few clicks.`,
+
       category: 'General'
     },
     {
-      question: `What is the difference between the Figma and codebase versions?`,
+      question: `Is StoreLine suitable for large businesses too?`,
       answer:
-        'The Figma version is for design and prototyping, while the codebase version provides ready-to-use React components for development.',
+        'Definitely. StoreLine’s serverless technology automatically scales with your business. whether you have 10 or 10,000 customers. Small or big, we make sure your site always runs fast and smooth.',
       category: 'General'
     },
     {
-      question: 'How can I download the template after purchase?',
-      answer: 'You will receive the template in a .zip format immediately after successfully purchasing the template.',
+      question: 'Can I use Bangladeshi payment methods and couriers?',
+      answer: 'Absolutely. StoreLine is 100% Bangladesh-friendly. We support local payment gateways and courier partners, so you can manage orders and deliveries without any extra setup.',
       category: 'General'
     },
     {
-      question: `What's included in the ${branding.brandName} license?`,
-      answer: {
-        content: 'It includes the Figma UI kit, React Material UI codebase, regular updates, and customer support.',
-        type: 'list',
-        data: [
-          { primary: `One License = One End Product` },
-          { primary: `Separate License for Each Product` },
-          { primary: `Comply with License Terms` }
-        ]
-      },
-      category: 'Pricing & Licenses'
+      question: `Do I need any technical skills to use StoreLine?`,
+      answer: 'Not at all! StoreLine is built for everyone even if you’ve never built a website before. You can launch and manage your online store easily with our simple dashboard.',
+
+      category: 'General'
     },
     {
-      question: `Can I use ${branding.brandName} for multiple projects?`,
-      answer: {
-        content:
-          'No, one license allows usage in a single end product. For each new product or project, you are required to purchase a separate license. This ensures compliance with the licensing terms and provides ongoing support for each individual product. Make sure to obtain the appropriate license for every new project you work on.',
-        type: 'list',
-        data: [
-          { primary: `One License = One End Product` },
-          { primary: `Separate License for Each Product` },
-          { primary: `Comply with License Terms` }
-        ]
-      },
-      category: 'Pricing & Licenses'
+      question: `Will my StoreLine website rank on Google?`,
+      answer:
+        'Yes! Every StoreLine site is built with SEO best practices, fast loading, clean code, and easy meta control. You can customize your page titles, descriptions, and URLs to help your store rank higher on Google.',
+
+      category: 'General'
     },
 
     {
-      question: 'Do you offer refunds?',
+      question: 'Can I track my visitors and sales?',
       answer:
-        'Yes, we offer refunds, but only if you provide a valid reason to support your claim. For more details, please review our MUI Store Refund Policy.',
-      category: 'Pricing'
+        'Absolutely! StoreLine includes built-in server-side tracking for accurate data no extra setup needed. You’ll see your visitors, top products, and sales insights directly from your dashboard.',
+      category: 'General'
     },
     {
-      question: 'Do I get access to future updates?',
-      answer: {
-        content:
-          'Yes, you will receive future updates for 1 year from the date of purchase. If you need updates after 1 year, you will need to purchase the license again. However, this is not a renewal—your license is valid for a lifetime, but updates are limited to the 1-year period.',
-        type: 'list',
-        data: [{ primary: `1 Year Free Updates` }, { primary: `License validity is lifetime` }]
-      },
-      category: 'Support & Updates'
+      question: 'Can I connect Google Analytics or Facebook Pixel?',
+      answer: `Yes! You can easily connect both with just a few clicks.
+ And because StoreLine uses server-side tracking, your data stays accurate even with iOS privacy updates.`,
+
+      category: 'General'
     },
     {
-      question: 'Is support included with the template purchase?',
-      answer: {
-        content:
-          'Support is included for 6 months, but it is limited to resolving issues within the template itself. We do not provide support for installation, customization queries, or troubleshooting unrelated issues. For ongoing support beyond 6 months, you will need to extend the support period with an additional purchase.',
-        type: 'list',
-        data: [{ primary: `6 Months Support` }, { primary: `No Installation Support` }, { primary: `No Customization Support` }]
-      },
-      category: 'Support & Updates'
+      question: 'Is my store safe and secure?',
+      answer:
+        '100%. StoreLine uses enterprise-grade security and encrypted connections for every store. You don’t need to worry about backups or updates we handle everything automatically.',
+
+      category: 'General'
     }
   ],
   getInTouch: {
