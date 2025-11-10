@@ -8,11 +8,12 @@ interface Props {
   stackProps?: StackProps;
   headingProps?: TypographyProps;
   captionProps?: TypographyProps;
+  textAlign?: 'left' | 'center' | 'right';
 }
 
 /***************************  COMMON - TYPESET  ***************************/
 
-export default function Typeset({ heading, caption, stackProps, headingProps, captionProps }: Props) {
+export default function Typeset({ heading, caption, stackProps, headingProps, textAlign, captionProps }: Props) {
   const { sx, ...rest } = stackProps || {};
 
   return (
@@ -20,7 +21,7 @@ export default function Typeset({ heading, caption, stackProps, headingProps, ca
       <Typography
         variant="h2"
         {...headingProps}
-        sx={{ ...(headingProps?.sx && { ...headingProps.sx }), maxWidth: 700, textAlign: 'center', margin: '0px auto' }}
+        sx={{ ...(headingProps?.sx && { ...headingProps.sx }), maxWidth: 700, textAlign: textAlign || 'center', margin: '0px auto' }}
       >
         {heading}
       </Typography>
