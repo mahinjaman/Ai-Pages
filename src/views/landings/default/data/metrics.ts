@@ -11,21 +11,21 @@ export const metrics = {
 
 
 export const metrics3 = {
-  heading: 'Tailored for your process',
-  caption: 'Advanced analytics and reporting, tracking customer behavior, sales trends, and more',
+  heading: 'Ready-Made E-Commerce Website',
+  caption: 'Built for simplicity and speed. A powerful e-commerce platform designed for everyone',
   bgImage: '/assets/images/graphics/ai/background1.svg',
   exploreBtn: { children: 'Get Started - It’s Free Now' },
   blockDetail: [
     {
       counter: 90,
       defaultUnit: '%',
-      caption: 'Power of AI for navigation and communication',
+      caption: '0.5 (Your store loads within half a second).',
       bgImage: '/assets/images/graphics/ai/background1.svg'
     },
     {
       counter: 10,
       defaultUnit: 'x',
-      caption: 'Achieving faster sales through streamlined processes.',
+      caption: '10X (faster, smoother, and smarter than others).',
       bgImage: '/assets/images/graphics/ai/background1.svg'
     }
   ]

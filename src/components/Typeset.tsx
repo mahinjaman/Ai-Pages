@@ -17,7 +17,11 @@ export default function Typeset({ heading, caption, stackProps, headingProps, ca
 
   return (
     <Stack {...rest} sx={{ gap: { xs: 1, sm: 1.5 }, ...sx }}>
-      <Typography variant="h2" {...headingProps} sx={{ ...(headingProps?.sx && { ...headingProps.sx }) }}>
+      <Typography
+        variant="h2"
+        {...headingProps}
+        sx={{ ...(headingProps?.sx && { ...headingProps.sx }), maxWidth: 700, textAlign: 'center', margin: '0px auto' }}
+      >
         {heading}
       </Typography>
       {caption && (

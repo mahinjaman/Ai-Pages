@@ -54,8 +54,8 @@ export default function Main() {
     <>
       <Hero17 {...hero} />
       <Clientele8
-        heading="10,000+ companies already growing"
-        caption="In partnership with renowned banks, we’re committed to offering you a secure and advanced financial experience"
+        heading="StoreLine combines world-class cloud technology"
+        caption="We’re on a mission to make e-commerce simple for every Bangladeshi entrepreneur. With StoreLine, anyone can start and grow an online business. no coding, no hassle"
         clienteleList={clientele?.clienteleList}
       />
       <LazySection

@@ -8,10 +8,10 @@ export const hero = {
     label: (
       <>
         <Typography variant="caption" sx={{ color: 'text.secondary' }}>
-          One Kit, Endless
+          Load Time,
         </Typography>
         <Chip
-          label="Possibilities"
+          label="0.5 second"
           slotProps={{ label: { sx: { px: 1.5, typography: 'caption', color: 'primary.main' } } }}
           sx={{ height: 24, bgcolor: 'primary.lighter', mr: -1, ml: 0.75 }}
           icon={
@@ -27,9 +27,9 @@ export const hero = {
       </>
     )
   },
-  headLine: 'Multipurpose UI Kit and Dashboard Template',
-  captionLine: 'Design marketing pages and powerful admin dashboards with ease using our UI Kit, built following Material 3 guidelines.',
-  primaryBtn: { children: 'Explore Blocks', href: '/' },
+  headLine: 'The All-in-One Serverless E-commerce Platform for Bangladesh',
+  captionLine: 'Finally, an e-commerce platform that truly understands the Bangladeshi market and its unique challenges',
+  primaryBtn: { children: 'Get Started — It’s Free', href: '/' },
   videoSrc: 'https://d2elhhoq00m1pj.cloudfront.net/saasable-intro.mp4',
   videoThumbnail: '/assets/videos/thumbnails/intro-thumbnail.png',
   listData: [
