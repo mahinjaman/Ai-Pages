@@ -1,67 +1,60 @@
 'use client';
 
-import { useState } from 'react';
-
 // @mui
 import { useTheme } from '@mui/material/styles';
 import Badge from '@mui/material/Badge';
-import Button from '@mui/material/Button';
-import Collapse from '@mui/material/Collapse';
-import Grid from '@mui/material/Grid';
-import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import Switch from '@mui/material/Switch';
-import Box from '@mui/material/Box';
 
 // @project
 import MenuPopper from './MenuPopper';
 import SvgIcon from '@/components/SvgIcon';
-import { Themes, ThemeDirection, ThemeMode } from '@/config';
+import { Themes, ThemeMode } from '@/config';
 import useConfig from '@/hooks/useConfig';
 
-interface ThemeListProps {
-  name: string;
-  value: Themes;
-  color: string;
-}
+// interface ThemeListProps {
+//   name: string;
+//   value: Themes;
+//   color: string;
+// }
 
 /***************************  THEME SELECTOR - DATA  ***************************/
 
-const themeOptions: ThemeListProps[] = [
-  { name: 'CRM', value: Themes.THEME_CRM, color: '#D0BCFF' },
-  { name: 'DEFAULT', value: Themes.THEME_DEFAULT, color: '#006397' },
-  { name: 'AI', value: Themes.THEME_AI, color: '#006397' },
-  { name: 'CRYPTO', value: Themes.THEME_CRYPTO, color: '#006D37' },
-  { name: 'HOSTING', value: Themes.THEME_HOSTING, color: '#606BDF' },
-  { name: 'PMS', value: Themes.THEME_PMS, color: '#897700' },
-  { name: 'HRM', value: Themes.THEME_HRM, color: '#005cab' },
-  { name: 'PLUGIN', value: Themes.THEME_PLUGIN, color: '#6375AD' },
-  { name: 'LMS', value: Themes.THEME_LMS, color: '#005BC0' }
-];
+// const themeOptions: ThemeListProps[] = [
+//   { name: 'CRM', value: Themes.THEME_CRM, color: '#D0BCFF' },
+//   { name: 'DEFAULT', value: Themes.THEME_DEFAULT, color: '#006397' },
+//   { name: 'AI', value: Themes.THEME_AI, color: '#006397' },
+//   { name: 'CRYPTO', value: Themes.THEME_CRYPTO, color: '#006D37' },
+//   { name: 'HOSTING', value: Themes.THEME_HOSTING, color: '#606BDF' },
+//   { name: 'PMS', value: Themes.THEME_PMS, color: '#897700' },
+//   { name: 'HRM', value: Themes.THEME_HRM, color: '#005cab' },
+//   { name: 'PLUGIN', value: Themes.THEME_PLUGIN, color: '#6375AD' },
+//   { name: 'LMS', value: Themes.THEME_LMS, color: '#005BC0' }
+// ];
 
 /***************************  NAVBAR - CUSTOMIZATION  ***************************/
 
 export default function Customization({ selectedTheme }: { selectedTheme?: Themes }) {
   const theme = useTheme();
 
-  const { currentTheme, onChangeCurrentTheme, onChangeThemeMode, onChangeThemeDirection } = useConfig();
-  const [selected, setSelected] = useState<Themes>(selectedTheme || currentTheme);
+  const { onChangeThemeMode } = useConfig();
+  // const [selected, setSelected] = useState<Themes>(selectedTheme || currentTheme);
 
   // handle theme selection change
-  const onSelectionChange = (value: Themes) => {
-    setOpen(!open);
-    setSelected(value);
-    onChangeCurrentTheme(value);
-  };
+  // const onSelectionChange = (value: Themes) => {
+  //   setOpen(!open);
+  //   setSelected(value);
+  //   onChangeCurrentTheme(value);
+  // };
 
-  const [open, setOpen] = useState(false);
+  // const [open, setOpen] = useState(false);
 
-  const handleClick = () => {
-    setOpen(!open);
-  };
+  // const handleClick = () => {
+  //   setOpen(!open);
+  // };
 
   return (
     <MenuPopper
@@ -96,7 +89,7 @@ export default function Customization({ selectedTheme }: { selectedTheme?: Theme
             onChange={() => onChangeThemeMode(theme.palette.mode === ThemeMode.DARK ? ThemeMode.LIGHT : ThemeMode.DARK)}
           />
         </ListItem>
-        <ListItem sx={{ px: 1 }}>
+        {/* <ListItem sx={{ px: 1 }}>
           <ListItemIcon sx={{ minWidth: 32 }}>
             <SvgIcon name="tabler-text-direction-ltr" color="text.primary" stroke={1} />
           </ListItemIcon>
@@ -156,7 +149,7 @@ export default function Customization({ selectedTheme }: { selectedTheme?: Theme
               </Grid>
             </List>
           </Box>
-        </Collapse>
+        </Collapse> */}
       </List>
     </MenuPopper>
   );

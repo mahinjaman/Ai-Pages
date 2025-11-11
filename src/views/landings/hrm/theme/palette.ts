@@ -20,7 +20,7 @@ export default function palette(mode: ThemeMode) {
   const lightPalette = {
     primary: {
       lighter: '#bfe1ff', // HRM/primary/90 - primary container / primary fixed
-      light: '#84D5CA', // HRM/primary/80 - primary fixed dim
+      light: '#bfe1ff', // HRM/primary/80 - primary fixed dim
       main: '#005cab', // HRM/primary/40 - primary
       dark: '#0091d0', // HRM/primary/30 - on primary fixed variant
       darker: '#00201D' // HRM/primary/10 - on primary container / on primary fixed
@@ -58,7 +58,7 @@ export default function palette(mode: ThemeMode) {
     primary: {
       lighter: '#0091d0', // HRM/primary/30 - primary container / on primary fixed variant
       light: '#4C9E94', // HRM/primary/60 - primary fixed dim
-      main: '#84D5CA', // HRM/primary/80 - primary
+      main: '#bfe1ff', // HRM/primary/80 - primary
       dark: '#bfe1ff', // HRM/primary/90 - on primary container / primary fixed
       darker: '#B3FFF3' // HRM/primary/95 - on primary container / on primary fixed
     },
