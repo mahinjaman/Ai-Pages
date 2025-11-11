@@ -4,9 +4,6 @@
 import NextLink from 'next/link';
 
 // @mui
-import { Theme } from '@mui/material/styles';
-import useMediaQuery from '@mui/material/useMediaQuery';
-import Divider, { DividerProps } from '@mui/material/Divider';
 import Link, { LinkProps } from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
@@ -24,10 +21,6 @@ interface Props {
 /***************************  FOOTER - COPYRIGHT  ***************************/
 
 export default function Copyright({ type = CopyrightType.TYPE1, textProps, isDivider = true }: Props) {
-  const downSM = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm'));
-
-  const dividerProps: DividerProps = { ...(!downSM && { orientation: 'vertical' }), ...(downSM && { variant: 'middle' }), flexItem: true };
-
   const linkProps: LinkProps = {
     component: NextLink,
     variant: 'caption2',
@@ -51,25 +44,6 @@ export default function Copyright({ type = CopyrightType.TYPE1, textProps, isDiv
           {branding.company.name}
         </Link>
       </Typography>
-      {type !== CopyrightType.TYPE3 && (
-        <>
-          {isDivider && <Divider {...dividerProps} />}
-          <Stack
-            direction={downSM && type !== CopyrightType.TYPE2 ? 'column' : 'row'}
-            sx={{ gap: { xs: downSM && type === CopyrightType.TYPE2 ? 3 : 1.5, sm: isDivider ? 1.5 : 3 }, alignItems: 'center' }}
-          >
-            <Link {...linkProps} href="/privacy-policy">
-              Privacy Policy
-            </Link>
-            {isDivider && (
-              <Divider {...dividerProps} {...(downSM && type === CopyrightType.TYPE2 && { orientation: 'vertical', sx: { my: 0 } })} />
-            )}
-            <Link {...linkProps} href="/terms-condition">
-              Terms & Conditions
-            </Link>
-          </Stack>
-        </>
-      )}
     </Stack>
   );
 }

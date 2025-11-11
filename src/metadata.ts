@@ -76,6 +76,12 @@ const privacyPolicyCommonMeta = {
   description: `${branding.brandName} privacy policy page outlines our commitment to data protection, detailing how user information is collected, stored, and managed to ensure transparency and build trust with your audience.`
 };
 
+const refundPolicyCommonMeta = {
+  title: 'Refund Policy',
+  description: `${branding.brandName} refund policy ensures a fair and transparent process for handling subscription cancellations, billing issues, and refund requests — helping merchants stay confident and protected while using our platform.`
+};
+
+
 const contactUsCommonMeta = {
   title: 'Contact US',
   description: `${branding.brandName} contact us page is crafted to generate excitement and capture leads, providing a visually appealing placeholder for upcoming launches and a subscription option for early notifications.`
@@ -134,6 +140,10 @@ export const SEO_CONTENT = {
   privacyPolicy: {
     ...privacyPolicyCommonMeta,
     openGraph: { ...privacyPolicyCommonMeta, ...ogCommonMetadata, url: PAGE_PATH.privacyPolicyPage }
+  },
+  refundPolicy: {
+    ...refundPolicyCommonMeta,
+    openGraph: { ...refundPolicyCommonMeta, ...ogCommonMetadata, url: PAGE_PATH.refundPolicyPage }
   },
   contactUs: { ...contactUsCommonMeta, openGraph: { ...contactUsCommonMeta, ...ogCommonMetadata, url: PAGE_PATH.contactPage } },
   error404Page: { ...error404PageCommonMeta, openGraph: { ...error404PageCommonMeta, ...ogCommonMetadata, url: PAGE_PATH.error404 } },

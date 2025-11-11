@@ -7,7 +7,6 @@ import Link, { LinkProps } from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 
 // @project
-import branding from '@/branding.json';
 import SvgIcon from '@/components/SvgIcon';
 import Typeset from '@/components/Typeset';
 import { IconType } from '@/enum';
@@ -26,27 +25,19 @@ const linkProps = { target: '_blank', rel: 'noopener noreferrer' };
 const socialIcons: SocialProps[] = [
   {
     icon: 'tabler-filled-linkedin',
-    link: { href: `${branding.company.socialLink.linkedin}`, ...linkProps }
+    link: { href: 'https://www.linkedin.com/company/storeline.io/', ...linkProps }
   },
-  // {
-  //   icon: 'tabler-filled-instagram',
-  //   link: { href: `${branding.company.socialLink.instagram}` }
-  // },
   {
     icon: 'tabler-filled-facebook',
-    link: { href: `${branding.company.socialLink.facebook}`, ...linkProps }
+    link: { href: 'https://www.facebook.com/storeline.io', ...linkProps }
+  },
+  {
+    icon: 'tabler-filled-instagram',
+    link: { href: 'https://www.instagram.com/storeline_io/', ...linkProps }
   },
   {
     icon: 'tabler-filled-youtube',
-    link: { href: `${branding.company.socialLink.youtube}`, ...linkProps }
-  },
-  {
-    icon: 'tabler-filled-brand-github',
-    link: { href: `${branding.company.socialLink.github}`, ...linkProps }
-  },
-  {
-    icon: 'tabler-filled-dribble',
-    link: { href: `${branding.company.socialLink.dribble}`, ...linkProps }
+    link: { href: 'https://www.youtube.com/@storeline.io', ...linkProps }
   }
 ];
 
@@ -59,9 +50,9 @@ interface Props {
 
 export default function FollowUS({ heading = true, color }: Props) {
   return (
-    <Stack sx={{ alignItems: { xs: 'center', md: 'flex-start' }, gap: 2, textAlign: { xs: 'center', md: 'left' } }}>
+    <Stack sx={{ alignItems: { xs: 'center', md: 'flex-start' }, gap: 1, textAlign: { xs: 'center', md: 'left' } }}>
       {heading && <Typeset {...{ heading: typeof heading === 'string' ? heading : 'Follow us on', headingProps: { variant: 'h4' } }} />}
-      <Stack direction="row" sx={{ gap: { xs: 0.5, sm: 1.5 } }}>
+      <Stack direction="row" sx={{}}>
         {socialIcons.map((item, index) => (
           <Link
             component={NextLink}
