@@ -16,7 +16,6 @@ import Typography from '@mui/material/Typography';
 
 // @third-party
 import { motion } from 'motion/react';
-import Slider, { Settings } from 'react-slick';
 
 // @project
 import ButtonAnimationWrapper from '@/components/ButtonAnimationWrapper';
@@ -53,8 +52,6 @@ export default function Faq6({ heading, caption, defaultExpanded, faqList, getIn
   const theme = useTheme();
   const isFocusWithin = useFocusWithin();
   const [expanded, setExpanded] = useState<string | false>(defaultExpanded || false);
-  const [activeTopic, setActiveTopic] = useState(activeCategory || '');
-  const [filterFaqList, setFilterFaqList] = useState(activeCategory ? faqList.filter((item) => item.category === activeCategory) : faqList);
 
   const cardRadius = { xs: 4, sm: 6 };
   const accordionRadius = { xs: cardRadius.xs * 4, sm: cardRadius.sm * 4 };
@@ -63,18 +60,6 @@ export default function Faq6({ heading, caption, defaultExpanded, faqList, getIn
 
   // Handles the expansion of accordion panels
   const handleChange = (panel: string) => (event: SyntheticEvent, isExpanded: boolean) => setExpanded(isExpanded ? panel : false);
-
-  const slickStyle = { '& .slick-slide': { ' > div': { px: { xs: 0.5, md: 0.75 } } } };
-
-  const settings: Settings = {
-    arrows: false,
-    dots: false,
-    infinite: false,
-    speed: 500,
-    swipeToSlide: true,
-    initialSlide: 0,
-    variableWidth: true
-  };
 
   return (
     <ContainerWrapper sx={{ py: SECTION_COMMON_PY }}>
@@ -118,47 +103,7 @@ export default function Faq6({ heading, caption, defaultExpanded, faqList, getIn
               duration: 0.5,
               delay: 0.4
             }}
-          >
-            <Stack sx={slickStyle}>
-              <Slider {...settings}>
-                <Button
-                  sx={{
-                    minHeight: { xs: 40, sm: 48 },
-                    color: 'text.primary',
-                    borderColor: 'divider',
-                    bgcolor: activeTopic === '' ? 'grey.100' : 'inherit',
-                    '&.MuiButton-root:hover': { bgcolor: 'grey.100', borderColor: 'divider' }
-                  }}
-                  variant="outlined"
-                  onClick={() => {
-                    setActiveTopic('');
-                    setFilterFaqList(faqList);
-                  }}
-                >
-                  All
-                </Button>
-                {categories.map((item, index) => (
-                  <Button
-                    key={index}
-                    sx={{
-                      minHeight: { xs: 40, sm: 48 },
-                      color: 'text.primary',
-                      borderColor: 'divider',
-                      bgcolor: activeTopic === item ? 'grey.100' : 'inherit',
-                      '&.MuiButton-root:hover': { bgcolor: 'grey.100', borderColor: 'divider' }
-                    }}
-                    variant="outlined"
-                    onClick={() => {
-                      setActiveTopic(item);
-                      setFilterFaqList(faqList.filter((list) => list.category === item));
-                    }}
-                  >
-                    {item}
-                  </Button>
-                ))}
-              </Slider>
-            </Stack>
-          </motion.div>
+          ></motion.div>
           <Stack
             sx={{
               gap: 1.5,
@@ -166,7 +111,7 @@ export default function Faq6({ heading, caption, defaultExpanded, faqList, getIn
               '& .MuiAccordion-root:last-of-type': { borderBottomLeftRadius: accordionRadius, borderBottomRightRadius: accordionRadius }
             }}
           >
-            {filterFaqList.map((item, index) => (
+            {faqList.map((item, index) => (
               <motion.div
                 key={index}
                 initial={{ y: 20, opacity: 0 }}
@@ -175,7 +120,6 @@ export default function Faq6({ heading, caption, defaultExpanded, faqList, getIn
                 transition={{ duration: 0.2, delay: index * 0.2 }}
               >
                 <Accordion
-                  key={index}
                   expanded={expanded === `panel${index}`}
                   onChange={handleChange(`panel${index}`)}
                   sx={{
@@ -196,7 +140,7 @@ export default function Faq6({ heading, caption, defaultExpanded, faqList, getIn
                   >
                     <Typography variant="h4">{item.question}</Typography>
                   </AccordionSummary>
-                  <AccordionDetails sx={{ px: accordionPX, pt: 0, pb: accordionPX }} key={index}>
+                  <AccordionDetails sx={{ px: accordionPX, pt: 0, pb: accordionPX }}>
                     <FaqDetails answer={item.answer} />
                   </AccordionDetails>
                 </Accordion>

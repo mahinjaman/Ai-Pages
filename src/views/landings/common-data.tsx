@@ -147,7 +147,6 @@ export const pagesMegamenu = {
     popperWidth: 360,
     menuItems: [
       {
-        title: 'Resources',
         itemsList: [
           { title: 'Blog', link: { href: PAGE_PATH.blogPage } },
           { title: 'Success Stories', link: { href: PAGE_PATH.successStoryPage } },
