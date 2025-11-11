@@ -14,7 +14,7 @@ import { navbar } from './data';
 // @types
 import { ChildrenProps } from '@/types/root';
 
-const headerColor = { bgcolor: 'grey.100' };
+const headerColor = { bgcolor: 'grey.100', Padding: '0px' };
 
 /***************************  LAYOUT - MAIN  ***************************/
 
@@ -22,7 +22,7 @@ export default function MainLayout({ children }: ChildrenProps) {
   return (
     <>
       {/* header section */}
-      <Box sx={headerColor}>
+      <Box>
         <Navbar10 triggerSX={headerColor}>
           <NavbarContent10 {...navbar} />
         </Navbar10>

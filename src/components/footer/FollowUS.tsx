@@ -44,16 +44,18 @@ const socialIcons: SocialProps[] = [
 interface Props {
   heading?: string | boolean;
   color?: string;
+  items?: SocialProps[];
 }
 
 /***************************  FOOTER - FOLLOW US  ***************************/
 
-export default function FollowUS({ heading = true, color }: Props) {
+export default function FollowUS({ heading = true, color, items }: Props) {
+  const socials = items?.length ? items : socialIcons;
   return (
     <Stack sx={{ alignItems: { xs: 'center', md: 'flex-start' }, gap: 1, textAlign: { xs: 'center', md: 'left' } }}>
       {heading && <Typeset {...{ heading: typeof heading === 'string' ? heading : 'Follow us on', headingProps: { variant: 'h4' } }} />}
-      <Stack direction="row" sx={{}}>
-        {socialIcons.map((item, index) => (
+      <Stack direction="row" sx={{ gap: 1 }}>
+        {socials.map((item, index) => (
           <Link
             component={NextLink}
             key={index}

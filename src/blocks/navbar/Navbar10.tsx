@@ -14,19 +14,15 @@ export const navbar10Height = { xs: 64, sm: 72, md: 84 };
 // override media queries injected by theme.mixins.toolbar
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   '@media all': {
-    minHeight: navbar10Height.md,
-    paddingLeft: 0,
-    paddingRight: 0
+    minHeight: navbar10Height.md
   },
-  paddingTop: theme.spacing(2),
-  paddingBottom: theme.spacing(2),
   [theme.breakpoints.down('md')]: {
     '@media all': { minHeight: navbar10Height.sm }
   },
   [theme.breakpoints.down('sm')]: {
     '@media all': { minHeight: navbar10Height.xs },
-    paddingTop: theme.spacing(1.5),
-    paddingBottom: theme.spacing(1.5)
+    paddingTop: 0,
+    paddingBottom: 0
   }
 }));
 
@@ -45,7 +41,12 @@ export default function Navbar10({ children, isFixed = true, ...props }: NavbarP
   return (
     <>
       <ElevationScroll isFixed={isFixed} {...props}>
-        <AppBar {...(!isFixed && { position: 'static', elevation: 0 })} component="nav" color="inherit" sx={{ background: 'transparent' }}>
+        <AppBar
+          {...(!isFixed && { position: 'static', elevation: 0 })}
+          component="nav"
+          color="inherit"
+          sx={{ background: 'transparent', padding: '0px' }}
+        >
           <StyledToolbar>
             <ContainerWrapper>{children}</ContainerWrapper>
           </StyledToolbar>
