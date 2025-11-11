@@ -53,3 +53,10 @@ html {
     direction: rtl;
   }
 }
+
+/* Header-Default */
+
+.css-gb4fgj-MuiToolbar-root {
+  padding-bottom: 0% !important;
+  padding-top: 0% !important;
+}

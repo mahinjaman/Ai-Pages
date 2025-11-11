@@ -1,18 +1,18 @@
 {
-  "brandName": "SaasAble",
-  "title": "React Multipurpose UI Kit and Dashboard Template",
+  "brandName": "Storeline",
+  "title": "Ready to use E-commerce website",
   "company": {
-    "name": "Phoenixcoded",
-    "url": "https://phoenixcoded.net",
+    "name": "Storeline.io",
+    "url": "https://storeline.io.net",
     "socialLink": {
-      "linkedin": "https://in.linkedin.com/company/phoenixcoded",
+      "linkedin": "https://in.linkedin.com/company/storeline.io",
       "instagram": "#",
-      "facebook": "https://www.facebook.com/Phoenixcoded/",
-      "youtube": "https://www.youtube.com/@Phoenixcoded",
-      "github": "https://github.com/phoenixcoded",
-      "dribble": "https://dribbble.com/Phoenixcoded",
-      "discord": "https://discord.gg/gmqz4BWYA8",
-      "support": "https://support.phoenixcoded.net"
+      "facebook": "https://www.facebook.com/storeline.io/",
+      "youtube": "https://www.youtube.com/@storeline.io",
+      "github": "https://github.com/storeline.io",
+      "dribble": "https://dribbble.com/storeline.io",
+      "discord": "https://discord.gg",
+      "support": "https://support.storeline.io.net"
     }
   },
   "logo": {

@@ -1,188 +1,205 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { Box, Container, Typography, Card, CardContent, Divider, Stack, Link } from '@mui/material';
+import SecurityIcon from '@mui/icons-material/Security';
+import InfoIcon from '@mui/icons-material/Info';
+import PolicyIcon from '@mui/icons-material/Policy';
+import DataUsageIcon from '@mui/icons-material/DataUsage';
+import CloudIcon from '@mui/icons-material/Cloud';
+import StorageIcon from '@mui/icons-material/Storage';
+import GavelIcon from '@mui/icons-material/Gavel';
+import ContactMailIcon from '@mui/icons-material/ContactMail';
+import LanguageIcon from '@mui/icons-material/Language';
+import FingerprintIcon from '@mui/icons-material/Fingerprint';
+import LockIcon from '@mui/icons-material/Lock';
+import CookieIcon from '@mui/icons-material/Cookie';
 
-// @mui
-import Divider from '@mui/material/Divider';
-import Grid from '@mui/material/Grid';
-import List from '@mui/material/List';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
-import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
-
-// @project
-import ContainerWrapper from '@/components/ContainerWrapper';
-import { SECTION_COMMON_PY } from '@/utils/constant';
-
-// Helper functions for scrollspy
-const clamp = (value: number) => Math.max(0, value);
-const isBetween = (value: number, floor: number, ceil: number) => value >= floor && value <= ceil;
-
-/***************************  HOOKS - SCROLLSPY  ***************************/
-
-function useScrollspy(ids: string[], offset: number = 0) {
-  const [activeId, setActiveId] = useState('');
-
-  useEffect(() => {
-    const listener = () => {
-      const scroll = window.scrollY;
-
-      const position = ids
-        .map((id) => {
-          const element = document.getElementById(id);
-          if (!element) return { id, top: -1, bottom: -1 };
-
-          const rect = element.getBoundingClientRect();
-          const top = clamp(rect.top + scroll - offset);
-          const bottom = clamp(rect.bottom + scroll - offset);
-
-          return { id, top, bottom };
-        })
-        .find(({ top, bottom }) => isBetween(scroll, top, bottom));
-
-      setActiveId(position?.id || '');
-    };
-
-    window.addEventListener('scroll', listener);
-    window.addEventListener('resize', listener);
-    listener(); // Initial call to set the activeId
-
-    return () => {
-      window.removeEventListener('scroll', listener);
-      window.removeEventListener('resize', listener);
-    };
-  }, [ids, offset]);
-
-  return activeId;
-}
-
-interface MenuItem {
-  heading: string;
-  caption: string;
-  id: string;
-}
-
-/***************************  PRIVACY POLICY - DATA  ***************************/
-
-const menuItems: MenuItem[] = [
-  {
-    id: 'acceptance-of-terms',
-    heading: 'Acceptance of terms',
-    caption:
-      'By accessing and using this website, you agree to be bound by these Terms and Conditions of Use. If you do not agree with any part of these terms, you must not use the website. shares information about you when you use our website or services. By accessing or using our website, you consent to the practices described in this policy.'
-  },
-  {
-    id: 'changes-to-terms',
-    heading: 'Changes to terms',
-    caption:
-      'We reserve the right to modify or replace these terms at our sole discretion. It is your responsibility to check these terms periodically for changes. Your continued use of the website after the posting of any changes constitutes acceptance of those changes.'
-  },
-  {
-    id: 'user-conduct',
-    heading: 'User conduct',
-    caption:
-      'You agree to use this website only for lawful purposes and in a manner consistent with all applicable local, national, and international laws and regulations.'
-  },
-  {
-    id: 'intellectual-property',
-    heading: 'Intellectual property',
-    caption:
-      'All content on this website, including but not limited to text, graphics, logos, images, audio clips, video clips, digital downloads, and data compilations, is the property of [Your Company Name] or its content suppliers and protected by international copyright laws.'
-  },
-  {
-    id: 'privacy-policy',
-    heading: 'Privacy policy',
-    caption:
-      'We do not sell, trade, or otherwise transfer your personal information to third parties. We may share information with trusted service providers who assist us in operating our website, conducting our business, or servicing you.'
-  },
-  {
-    id: 'user-generated-content',
-    heading: 'User-generated content',
-    caption:
-      'If you submit any material to this website, you grant [Your Company Name] a perpetual, royalty-free, worldwide license to use, reproduce, modify, adapt, publish, translate, create derivative works from, distribute, and display such material.'
-  },
-  {
-    id: 'limitation-of-liability',
-    heading: 'Limitation of liability',
-    caption:
-      'In no event shall [Your Company Name] or its affiliates be liable for any direct, indirect, incidental, special, or consequential damages resulting from the use or inability to use this website.'
-  },
-  {
-    id: 'indemnity',
-    heading: 'Indemnity',
-    caption:
-      "You agree to indemnify and hold harmless [Your Company Name] and its affiliates from any claims, actions, demands, damages, liabilities, costs, or expenses, including reasonable attorneys' fees, arising out of or related to your use of the website or any violation of these terms."
-  },
-  {
-    id: 'governing-law',
-    heading: 'Governing law',
-    caption:
-      'These terms are governed by and construed in accordance with the laws of [Your Country/State], without regard to its conflict of law principles.'
-  }
-];
-
-/***************************  PRIVACY POLICY - 1 ***************************/
-
-/**
- *
- * Demos:
- * - [PrivacyPolicy1](https://www.saasable.io/blocks/privacy-policy/privacy-policy1)
- */
-
-export default function PrivacyPolicy1() {
-  const ids = menuItems.map((item) => item.id);
-
-  // Adjust offset as per header height
-  const activeId = useScrollspy(ids, 60);
-  const [selectedID, setSelectedID] = useState(activeId);
-
-  useEffect(() => {
-    if (activeId) {
-      setSelectedID(activeId);
-    }
-  }, [activeId]);
-
+export default function PrivacyPolicy() {
   return (
-    <ContainerWrapper sx={{ py: SECTION_COMMON_PY }}>
-      <Grid container spacing={{ xs: 2, md: 3 }}>
-        <Grid size={{ xs: 12, sm: 4, md: 3 }}>
-          <List component="div" sx={{ position: 'sticky', top: 20 }} disablePadding>
-            {menuItems.map((item, index) => (
-              <ListItemButton
-                key={index}
-                href={`#${item.id}`}
-                sx={{
-                  py: 1.25,
-                  px: 1.5,
-                  borderRadius: 3,
-                  mb: 0.75,
-                  ...(selectedID === item.id && { color: 'primary.main', bgcolor: 'grey.100' }),
-                  '&:hover': { bgcolor: 'grey.50' }
-                }}
-                onClick={() => setSelectedID(item.id)}
-              >
-                <ListItemText primary={item.heading} slotProps={{ primary: { variant: 'subtitle1' } }} sx={{ my: 0 }} />
-              </ListItemButton>
-            ))}
-          </List>
-          <Divider sx={{ display: { xs: 'block', sm: 'none' } }} />
-        </Grid>
-        <Grid size={{ xs: 12, sm: 8, md: 9 }}>
-          {menuItems.map((item, index) => (
-            <Stack
-              key={index}
-              id={item.id}
-              sx={{ py: { xs: 1, sm: 1.5, md: 3 }, px: { md: 3 }, gap: 1, '&:first-of-type': { pt: { sm: 0 } } }}
-            >
-              <Typography variant="h4">{item.heading}</Typography>
-              <Typography variant="body1" sx={{ color: 'text.secondary' }}>
-                {item.caption}
-              </Typography>
-            </Stack>
-          ))}
-        </Grid>
-      </Grid>
-    </ContainerWrapper>
+    <Box sx={{ bgcolor: 'background.default', py: { xs: 6, md: 10 } }}>
+      {/* Hero Section */}
+      <Box sx={{ textAlign: 'center', mb: 6, px: 2 }}>
+        <Typography variant="h2" sx={{ fontWeight: 700, mb: 2 }}>
+          Privacy Policy
+        </Typography>
+        <Typography variant="body1" sx={{ color: 'text.secondary', maxWidth: 800, mx: 'auto' }}>
+          Effective Date: November 11, 2025
+          <br />
+          We value your privacy and are committed to protecting your personal data when using <strong>StoreLine.io</strong>.
+        </Typography>
+      </Box>
+
+      {/* Company Info */}
+      <Container maxWidth="md" sx={{ mb: 6 }}>
+        <Card variant="outlined" sx={{ borderRadius: 3 }}>
+          <CardContent>
+            <Typography variant="h6" sx={{ mb: 1 }}>
+              Company Information
+            </Typography>
+            <Divider sx={{ mb: 2 }} />
+            <Typography variant="body2" sx={{ mb: 1 }}>
+              <strong>Company:</strong> StoreLine.io
+            </Typography>
+            <Typography variant="body2" sx={{ mb: 1 }}>
+              <strong>Website:</strong>{' '}
+              <Link href="https://storeline.io" target="_blank" rel="noopener noreferrer">
+                https://storeline.io
+              </Link>
+            </Typography>
+            <Typography variant="body2" sx={{ mb: 1 }}>
+              <strong>Email:</strong>{' '}
+              <Link href="mailto:info@storeline.io">info@storeline.io</Link>
+            </Typography>
+            <Typography variant="body2">
+              <strong>Phone:</strong>{' '}
+              <Link href="tel:+8801607404085">+8801607404085</Link>
+            </Typography>
+          </CardContent>
+        </Card>
+      </Container>
+
+      {/* Sections */}
+      <Container maxWidth="md">
+        <Stack spacing={4}>
+          <Section
+            icon={<InfoIcon color="primary" sx={{ fontSize: 36 }} />}
+            title="Introduction"
+            text="Welcome to StoreLine.io — a complete ready-to-use eCommerce solution for businesses in Bangladesh. Your privacy is important to us. This Privacy Policy explains how we collect, use, protect, and share your personal information when you visit or use our website and services. By using StoreLine.io, you agree to the terms of this Privacy Policy."
+          />
+
+          <Section
+            icon={<DataUsageIcon color="primary" sx={{ fontSize: 36 }} />}
+            title="Information We Collect"
+            text={`We collect personal and non-personal information to provide and improve our services.
+- Personal Information: name, business name, email, phone, billing details (Bkash, Nagad, card), and login credentials.
+- Automatically Collected: device, browser, IP, pages viewed, cookies, referral sources.
+- Third-Party Data: analytics (Google), advertising (Facebook Pixel), and payment verification info.`}
+          />
+
+          <Section
+            icon={<PolicyIcon color="primary" sx={{ fontSize: 36 }} />}
+            title="How We Use Your Information"
+            text={`We use your information to:
+- Create and manage your StoreLine account
+- Process subscriptions, payments, and refunds
+- Communicate updates, offers, or alerts
+- Improve our services and detect fraud
+- Analyze usage data for optimization
+- Comply with legal and financial obligations`}
+          />
+
+          <Section
+            icon={<CloudIcon color="primary" sx={{ fontSize: 36 }} />}
+            title="How We Share Your Information"
+            text={`We never sell or trade your data. Limited information may be shared only with trusted third parties:
+- Payment processors
+- Analytics and advertising partners (Google, Meta)
+- Customer support systems
+- Hosting and infrastructure providers
+These parties maintain confidentiality and use your data only for service delivery.`}
+          />
+
+          <Section
+            icon={<CookieIcon color="primary" sx={{ fontSize: 36 }} />}
+            title="Cookies and Tracking Technologies"
+            text={`We use cookies to enhance your browsing experience.
+Cookies help us:
+- Remember preferences
+- Keep you logged in securely
+- Analyze website performance
+- Personalize user experience
+
+You can disable cookies via browser settings, though some features may stop working properly.`}
+          />
+
+          <Section
+            icon={<LockIcon color="primary" sx={{ fontSize: 36 }} />}
+            title="Data Security"
+            text={`We use industry-standard protection:
+- SSL encryption
+- Encrypted password storage
+- Restricted access to authorized personnel
+- Regular vulnerability monitoring
+No system is 100 % secure, but we take all necessary precautions.`}
+          />
+
+          <Section
+            icon={<StorageIcon color="primary" sx={{ fontSize: 36 }} />}
+            title="Data Retention"
+            text="We retain your personal data only as long as needed to provide our services, comply with legal obligations, and resolve disputes. After account closure, essential records such as invoices may be kept for accounting purposes."
+          />
+
+          <Section
+            icon={<FingerprintIcon color="primary" sx={{ fontSize: 36 }} />}
+            title="Your Rights and Choices"
+            text={`You have the right to:
+- Access your stored data
+- Correct inaccurate information
+- Request account deletion
+- Opt-out of marketing emails
+To exercise these rights, contact us at info@storeline.io.`}
+          />
+
+          <Section
+            icon={<LanguageIcon color="primary" sx={{ fontSize: 36 }} />}
+            title="International Data Transfers"
+            text="StoreLine.io is based in Bangladesh. If you use our services from another country, your data will be processed and stored in Bangladesh under local data protection laws, which may differ from those in your jurisdiction."
+          />
+
+          <Section
+            icon={<SecurityIcon color="primary" sx={{ fontSize: 36 }} />}
+            title="Children’s Privacy"
+            text="We do not knowingly collect data from individuals under 18 years. If any such data is discovered, it will be deleted immediately."
+          />
+
+          <Section
+            icon={<GavelIcon color="primary" sx={{ fontSize: 36 }} />}
+            title="Policy Updates"
+            text="We may update this Privacy Policy periodically to reflect new practices or legal requirements. Updated versions will include a new 'Last Updated' date. Please review this policy periodically."
+          />
+
+          <Section
+            icon={<ContactMailIcon color="primary" sx={{ fontSize: 36 }} />}
+            title="Contact Us"
+            text={`For any privacy-related concerns, reach us at:
+📧 Email: info@storeline.io
+📞 Phone: +8801607404085
+🏢 Address: Dhaka Uddan Abasik Avenue, 43/A Haji Dil Mohammad Ave, 1207, Bangladesh`}
+          />
+        </Stack>
+      </Container>
+
+      {/* Footer */}
+      <Container maxWidth="sm" sx={{ textAlign: 'center', mt: 8 }}>
+        <Divider sx={{ mb: 3 }} />
+        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+          By using StoreLine.io, you acknowledge that you have read, understood, and agreed to this Privacy Policy.
+        </Typography>
+      </Container>
+    </Box>
+  );
+}
+
+/*  REUSABLE SECTION COMPONENT  */
+function Section({ icon, title, text }: { icon: React.ReactNode; title: string; text: string }) {
+  return (
+    <Card
+      elevation={2}
+      sx={{
+        borderRadius: 3,
+        p: { xs: 2.5, md: 3 },
+        '&:hover': { boxShadow: 6, transform: 'translateY(-3px)', transition: '0.3s ease' },
+      }}
+    >
+      <Stack direction="row" spacing={2} alignItems="center" sx={{ mb: 1 }}>
+        {icon}
+        <Typography variant="h5" sx={{ fontWeight: 600 }}>
+          {title}
+        </Typography>
+      </Stack>
+      <Typography variant="body1" sx={{ color: 'text.secondary', whiteSpace: 'pre-line' }}>
+        {text}
+      </Typography>
+    </Card>
   );
 }

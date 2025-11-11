@@ -1,188 +1,201 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { Box, Container, Typography, Card, CardContent, Divider, Stack, Link } from '@mui/material';
+import GavelIcon from '@mui/icons-material/Gavel';
+import InfoIcon from '@mui/icons-material/Info';
+import RuleIcon from '@mui/icons-material/Rule';
+import SecurityIcon from '@mui/icons-material/Security';
+import ContactMailIcon from '@mui/icons-material/ContactMail';
+import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
+import PolicyIcon from '@mui/icons-material/Policy';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import IntegrationInstructionsIcon from '@mui/icons-material/IntegrationInstructions';
+import LockIcon from '@mui/icons-material/Lock';
+import WarningIcon from '@mui/icons-material/Warning';
+import LanguageIcon from '@mui/icons-material/Language';
+import AssignmentIcon from '@mui/icons-material/Assignment';
+import BalanceIcon from '@mui/icons-material/Balance';
 
-// @mui
-import Divider from '@mui/material/Divider';
-import Grid from '@mui/material/Grid';
-import List from '@mui/material/List';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
-import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
-
-// @project
-import ContainerWrapper from '@/components/ContainerWrapper';
-import { SECTION_COMMON_PY } from '@/utils/constant';
-
-// Helper functions for scrollspy
-const clamp = (value: number) => Math.max(0, value);
-const isBetween = (value: number, floor: number, ceil: number) => value >= floor && value <= ceil;
-
-/***************************  HOOKS - SCROLLSPY  ***************************/
-
-function useScrollspy(ids: string[], offset: number = 0) {
-  const [activeId, setActiveId] = useState('');
-
-  useEffect(() => {
-    const listener = () => {
-      const scroll = window.scrollY;
-
-      const position = ids
-        .map((id) => {
-          const element = document.getElementById(id);
-          if (!element) return { id, top: -1, bottom: -1 };
-
-          const rect = element.getBoundingClientRect();
-          const top = clamp(rect.top + scroll - offset);
-          const bottom = clamp(rect.bottom + scroll - offset);
-
-          return { id, top, bottom };
-        })
-        .find(({ top, bottom }) => isBetween(scroll, top, bottom));
-
-      setActiveId(position?.id || '');
-    };
-
-    window.addEventListener('scroll', listener);
-    window.addEventListener('resize', listener);
-    listener(); // Initial call to set the activeId
-
-    return () => {
-      window.removeEventListener('scroll', listener);
-      window.removeEventListener('resize', listener);
-    };
-  }, [ids, offset]);
-
-  return activeId;
-}
-
-interface MenuItem {
-  heading: string;
-  caption: string;
-  id: string;
-}
-
-/***************************  TERMS CONDITION - DATA  ***************************/
-
-const menuItems: MenuItem[] = [
-  {
-    id: 'acceptance-of-terms',
-    heading: 'Acceptance of terms',
-    caption:
-      'By accessing and using this website, you agree to be bound by these Terms and Conditions of Use. If you do not agree with any part of these terms, you must not use the website. shares information about you when you use our website or services. By accessing or using our website, you consent to the practices described in this policy.'
-  },
-  {
-    id: 'changes-to-terms',
-    heading: 'Changes to terms',
-    caption:
-      'We reserve the right to modify or replace these terms at our sole discretion. It is your responsibility to check these terms periodically for changes. Your continued use of the website after the posting of any changes constitutes acceptance of those changes.'
-  },
-  {
-    id: 'user-conduct',
-    heading: 'User conduct',
-    caption:
-      'You agree to use this website only for lawful purposes and in a manner consistent with all applicable local, national, and international laws and regulations.'
-  },
-  {
-    id: 'intellectual-property',
-    heading: 'Intellectual property',
-    caption:
-      'All content on this website, including but not limited to text, graphics, logos, images, audio clips, video clips, digital downloads, and data compilations, is the property of [Your Company Name] or its content suppliers and protected by international copyright laws.'
-  },
-  {
-    id: 'privacy-policy',
-    heading: 'Privacy policy',
-    caption:
-      'We do not sell, trade, or otherwise transfer your personal information to third parties. We may share information with trusted service providers who assist us in operating our website, conducting our business, or servicing you.'
-  },
-  {
-    id: 'user-generated-content',
-    heading: 'User-generated content',
-    caption:
-      'If you submit any material to this website, you grant [Your Company Name] a perpetual, royalty-free, worldwide license to use, reproduce, modify, adapt, publish, translate, create derivative works from, distribute, and display such material.'
-  },
-  {
-    id: 'limitation-of-liability',
-    heading: 'Limitation of liability',
-    caption:
-      'In no event shall [Your Company Name] or its affiliates be liable for any direct, indirect, incidental, special, or consequential damages resulting from the use or inability to use this website.'
-  },
-  {
-    id: 'indemnity',
-    heading: 'Indemnity',
-    caption:
-      "You agree to indemnify and hold harmless [Your Company Name] and its affiliates from any claims, actions, demands, damages, liabilities, costs, or expenses, including reasonable attorneys' fees, arising out of or related to your use of the website or any violation of these terms."
-  },
-  {
-    id: 'governing-law',
-    heading: 'Governing law',
-    caption:
-      'These terms are governed by and construed in accordance with the laws of [Your Country/State], without regard to its conflict of law principles.'
-  }
-];
-
-/***************************  SECTIONS - TERMS CONDITION  ***************************/
-
-/**
- *
- * Demos:
- * - [Terms Condition](https://www.saasable.io/sections/terms-condition)
- */
-
-export default function TermsConditionPage() {
-  const ids = menuItems.map((item) => item.id);
-
-  // Adjust offset as per header height
-  const activeId = useScrollspy(ids, 60);
-  const [selectedID, setSelectedID] = useState(activeId);
-
-  useEffect(() => {
-    if (activeId) {
-      setSelectedID(activeId);
-    }
-  }, [activeId]);
-
+export default function TermsConditions() {
   return (
-    <ContainerWrapper sx={{ pb: SECTION_COMMON_PY }}>
-      <Grid container spacing={{ xs: 2, md: 3 }}>
-        <Grid size={{ xs: 12, sm: 4, md: 3 }}>
-          <List component="div" sx={{ position: 'sticky', top: 20 }} disablePadding>
-            {menuItems.map((item, index) => (
-              <ListItemButton
-                key={index}
-                href={`#${item.id}`}
-                sx={{
-                  py: 1.25,
-                  px: 1.5,
-                  borderRadius: 3,
-                  mb: 0.75,
-                  ...(selectedID === item.id && { color: 'primary.main', bgcolor: 'grey.100' }),
-                  '&:hover': { bgcolor: 'grey.50' }
-                }}
-                onClick={() => setSelectedID(item.id)}
-              >
-                <ListItemText primary={item.heading} sx={{ my: 0 }} slotProps={{ primary: { variant: 'subtitle1' } }} />
-              </ListItemButton>
-            ))}
-          </List>
-          <Divider sx={{ display: { xs: 'block', sm: 'none' } }} />
-        </Grid>
-        <Grid size={{ xs: 12, sm: 8, md: 9 }}>
-          {menuItems.map((item, index) => (
-            <Stack
-              key={index}
-              id={item.id}
-              sx={{ py: { xs: 1, sm: 1.5, md: 3 }, px: { md: 3 }, gap: 1, '&:first-of-type': { pt: { sm: 0 } } }}
-            >
-              <Typography variant="h4">{item.heading}</Typography>
-              <Typography variant="body1" sx={{ color: 'text.secondary' }}>
-                {item.caption}
-              </Typography>
-            </Stack>
-          ))}
-        </Grid>
-      </Grid>
-    </ContainerWrapper>
+    <Box sx={{ bgcolor: 'background.default', py: { xs: 6, md: 10 } }}>
+      {/* Hero Section */}
+      <Box sx={{ textAlign: 'center', mb: 6, px: 2 }}>
+        <Typography variant="h2" sx={{ fontWeight: 700, mb: 2 }}>
+          Terms & Conditions
+        </Typography>
+        <Typography variant="body1" sx={{ color: 'text.secondary', maxWidth: 800, mx: 'auto' }}>
+          Effective Date: November 11, 2025
+          <br />
+          Please read these Terms carefully before using <strong>StoreLine.io</strong>.  
+          By accessing or using our platform, you agree to abide by these terms and conditions.
+        </Typography>
+      </Box>
+
+      {/* Company Info */}
+      <Container maxWidth="md" sx={{ mb: 6 }}>
+        <Card variant="outlined" sx={{ borderRadius: 3 }}>
+          <CardContent>
+            <Typography variant="h6" sx={{ mb: 1 }}>
+              Company Information
+            </Typography>
+            <Divider sx={{ mb: 2 }} />
+            <Typography variant="body2" sx={{ mb: 1 }}>
+              <strong>Company:</strong> StoreLine.io
+            </Typography>
+            <Typography variant="body2" sx={{ mb: 1 }}>
+              <strong>Website:</strong>{' '}
+              <Link href="https://storeline.io" target="_blank" rel="noopener noreferrer">
+                https://storeline.io
+              </Link>
+            </Typography>
+            <Typography variant="body2" sx={{ mb: 1 }}>
+              <strong>Email:</strong>{' '}
+              <Link href="mailto:info@storeline.io">info@storeline.io</Link>
+            </Typography>
+            <Typography variant="body2">
+              <strong>Phone:</strong>{' '}
+              <Link href="tel:+8801607404085">+8801607404085</Link>
+            </Typography>
+          </CardContent>
+        </Card>
+      </Container>
+
+      {/* Sections */}
+      <Container maxWidth="md">
+        <Stack spacing={4}>
+          <Section
+            icon={<InfoIcon color="primary" sx={{ fontSize: 36 }} />}
+            title="Introduction"
+            text="Welcome to StoreLine.io, a complete ready-to-use eCommerce solution for businesses in Bangladesh. These Terms & Conditions ('Terms') govern your use of our website, platform, and all related services provided by StoreLine.io. By creating an account or using our services, you agree to be bound by these Terms. If you do not agree, please discontinue use of our platform immediately."
+          />
+
+          <Section
+            icon={<AssignmentIcon color="primary" sx={{ fontSize: 36 }} />}
+            title="Definitions"
+            text={`“Platform” refers to the StoreLine.io website and all related applications, software, and tools.
+“User”, “You”, or “Customer” refers to any individual or business using StoreLine.io services.
+“We”, “Us”, or “Our” refers to StoreLine.io.
+“Subscription” refers to your paid or trial access to StoreLine.io services.`}
+          />
+
+          <Section
+            icon={<RuleIcon color="primary" sx={{ fontSize: 36 }} />}
+            title="Eligibility"
+            text="To use StoreLine.io, you must be at least 18 years old, have the authority to enter into a binding agreement, and provide accurate and up-to-date information. We reserve the right to suspend or terminate any account that provides false information or violates our policies."
+          />
+
+          <Section
+            icon={<AccountCircleIcon color="primary" sx={{ fontSize: 36 }} />}
+            title="Account Registration and Security"
+            text="When you create an account on StoreLine.io, you must provide accurate contact and billing details. You are responsible for maintaining the confidentiality of your credentials. Notify us immediately if you suspect unauthorized access. StoreLine.io is not liable for any losses resulting from unauthorized access."
+          />
+
+          <Section
+            icon={<PolicyIcon color="primary" sx={{ fontSize: 36 }} />}
+            title="Services Overview"
+            text="StoreLine.io provides a cloud-based eCommerce SaaS platform enabling users to build, manage, and grow their online stores. Features include website builder, order management, analytics, and integrations with local payment gateways (Bkash, Nagad, etc.)."
+          />
+
+          <Section
+            icon={<MonetizationOnIcon color="primary" sx={{ fontSize: 36 }} />}
+            title="Subscription, Payments, and Free Trial"
+            text="StoreLine.io operates on a subscription model with payments in Bangladeshi Taka (BDT). New users receive a 14-day free trial. Subscription fees are billed in advance and are non-refundable except as stated in our Refund Policy."
+          />
+
+          <Section
+            icon={<WarningIcon color="primary" sx={{ fontSize: 36 }} />}
+            title="Cancellations and Termination"
+            text="You may cancel your subscription at any time via your dashboard or by contacting support. After cancellation, your account remains active until the billing cycle ends. We may suspend or terminate accounts that violate our Terms, engage in fraudulent activity, or fail to make timely payments."
+          />
+
+          <Section
+            icon={<SecurityIcon color="primary" sx={{ fontSize: 36 }} />}
+            title="Acceptable Use Policy"
+            text="You agree not to use the platform for illegal, fraudulent, or harmful purposes, including hosting haram or illegal products, uploading malware, infringing IP rights, or engaging in spamming or phishing. Violations may result in immediate termination without refund."
+          />
+
+          <Section
+            icon={<GavelIcon color="primary" sx={{ fontSize: 36 }} />}
+            title="Intellectual Property"
+            text="All content, software, and trademarks on StoreLine.io are owned by StoreLine or its licensors. You are granted a limited, non-transferable license to use the platform. Copying, modifying, or reverse-engineering our software is prohibited."
+          />
+
+          <Section
+            icon={<IntegrationInstructionsIcon color="primary" sx={{ fontSize: 36 }} />}
+            title="Third-Party Services and Integrations"
+            text="StoreLine.io integrates with third-party tools such as payment gateways, delivery, and analytics. We do not control or guarantee third-party services. Your use of them is subject to their respective terms and privacy policies."
+          />
+
+          <Section
+            icon={<LockIcon color="primary" sx={{ fontSize: 36 }} />}
+            title="Data Protection and Privacy"
+            text="We handle all personal information per our Privacy Policy. By using StoreLine.io, you consent to our collection and processing of your data as described there."
+          />
+
+          <Section
+            icon={<PolicyIcon color="primary" sx={{ fontSize: 36 }} />}
+            title="Disclaimer of Warranties"
+            text="StoreLine.io is provided 'as is' and 'as available.' We make no guarantees of uninterrupted service and disclaim all warranties, express or implied, to the fullest extent permitted by law."
+          />
+
+          <Section
+            icon={<BalanceIcon color="primary" sx={{ fontSize: 36 }} />}
+            title="Limitation of Liability"
+            text="StoreLine.io shall not be liable for indirect, incidental, or consequential damages including data loss or downtime. Our total liability is limited to the amount paid by you for the previous month of service."
+          />
+
+          <Section
+            icon={<SecurityIcon color="primary" sx={{ fontSize: 36 }} />}
+            title="Indemnification"
+            text="You agree to indemnify and hold harmless StoreLine.io and its affiliates from any claims or damages resulting from your violation of these Terms or misuse of our platform."
+          />
+
+          <Section
+            icon={<PolicyIcon color="primary" sx={{ fontSize: 36 }} />}
+            title="Modifications to the Terms"
+            text="We may update or modify these Terms at any time. Updated Terms will be posted with a new 'Last Updated' date. Continued use indicates your acceptance of the revised Terms."
+          />
+
+          <Section
+            icon={<LanguageIcon color="primary" sx={{ fontSize: 36 }} />}
+            title="Governing Law and Jurisdiction"
+            text="These Terms are governed by and construed under the laws of Bangladesh. All disputes shall be resolved exclusively in Dhaka courts."
+          />
+
+          <Section
+            icon={<ContactMailIcon color="primary" sx={{ fontSize: 36 }} />}
+            title="Contact Information"
+            text={`📧 Email: info@storeline.io
+📞 Phone: +8801607404085
+🏢 Address: Dhaka Uddan Abasik Avenue, 43/A Haji Dil Mohammad Ave, 1207, Bangladesh.`}
+          />
+        </Stack>
+      </Container>
+    </Box>
+  );
+}
+
+/*  REUSABLE SECTION COMPONENT  */
+function Section({ icon, title, text }: { icon: React.ReactNode; title: string; text: string }) {
+  return (
+    <Card
+      elevation={2}
+      sx={{
+        borderRadius: 3,
+        p: { xs: 2.5, md: 3 },
+        '&:hover': { boxShadow: 6, transform: 'translateY(-3px)', transition: '0.3s ease' },
+      }}
+    >
+      <Stack direction="row" spacing={2} alignItems="center" sx={{ mb: 1 }}>
+        {icon}
+        <Typography variant="h5" sx={{ fontWeight: 600 }}>
+          {title}
+        </Typography>
+      </Stack>
+      <Typography variant="body1" sx={{ color: 'text.secondary', whiteSpace: 'pre-line' }}>
+        {text}
+      </Typography>
+    </Card>
   );
 }

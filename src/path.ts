@@ -30,6 +30,7 @@ export const PAGE_PATH = {
   blogPage: '/blog',
   contactPage: '/contact',
   privacyPolicyPage: '/privacy-policy',
+  refundPolicyPage: '/refund-policy',
   termsConditionPage: '/terms-condition',
   successStoryPage: '/success-stories',
   careerPage: '/career',
