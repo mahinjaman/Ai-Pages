@@ -19,6 +19,30 @@ import SvgIcon from '@/components/SvgIcon';
 
 // @types
 import { NavbarContentProps } from '@/types/navbar';
+import { SpriteIconProps } from '@/types/icon';
+import { LinkProps } from '@mui/material';
+import { FollowUS } from '@/components/footer';
+
+interface SocialProps {
+  icon: SpriteIconProps;
+  link: LinkProps;
+}
+
+const linkProps = { target: '_blank', rel: 'noopener noreferrer' };
+const socialIcons: SocialProps[] = [
+  {
+    icon: 'tabler-filled-linkedin',
+    link: { href: 'https://www.linkedin.com/company/storeline.io/', ...linkProps }
+  },
+  {
+    icon: 'tabler-filled-facebook',
+    link: { href: 'https://www.facebook.com/storeline.io', ...linkProps }
+  },
+  {
+    icon: 'tabler-filled-instagram',
+    link: { href: 'https://www.instagram.com/storeline_io/', ...linkProps }
+  }
+];
 
 /***************************  NAVBAR - CONTENT 10  ***************************/
 
@@ -104,10 +128,16 @@ export default function NavbarContent10({
                 )}
                 {downSM && (
                   <Stack direction="row" sx={{ justifyContent: 'space-between', gap: 1, px: 2, py: 2.5, mx: -2, bgcolor: 'grey.100' }}>
-                    <NavSecondaryButton {...secondaryBtn} />
-                    <ButtonAnimationWrapper>
-                      <NavPrimaryButton {...primaryBtn} />
-                    </ButtonAnimationWrapper>
+                    <FollowUS heading="" items={socialIcons} />
+                    <Stack direction="row" sx={{ gap: 1, alignItems: 'center' }}>
+                      <ButtonAnimationWrapper>
+                        <NavSecondaryButton {...secondaryBtn} />
+                      </ButtonAnimationWrapper>
+
+                      <ButtonAnimationWrapper>
+                        <NavPrimaryButton {...primaryBtn} />
+                      </ButtonAnimationWrapper>
+                    </Stack>
                   </Stack>
                 )}
               </ContainerWrapper>

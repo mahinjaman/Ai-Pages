@@ -27,8 +27,8 @@ export default function TermsConditions() {
         <Typography variant="body1" sx={{ color: 'text.secondary', maxWidth: 800, mx: 'auto' }}>
           Effective Date: November 11, 2025
           <br />
-          Please read these Terms carefully before using <strong>StoreLine.io</strong>.  
-          By accessing or using our platform, you agree to abide by these terms and conditions.
+          Please read these Terms carefully before using <strong>StoreLine.io</strong>. By accessing or using our platform, you agree to
+          abide by these terms and conditions.
         </Typography>
       </Box>
 
@@ -50,12 +50,10 @@ export default function TermsConditions() {
               </Link>
             </Typography>
             <Typography variant="body2" sx={{ mb: 1 }}>
-              <strong>Email:</strong>{' '}
-              <Link href="mailto:info@storeline.io">info@storeline.io</Link>
+              <strong>Email:</strong> <Link href="mailto:info@storeline.io">info@storeline.io</Link>
             </Typography>
             <Typography variant="body2">
-              <strong>Phone:</strong>{' '}
-              <Link href="tel:+8801607404085">+8801607404085</Link>
+              <strong>Phone:</strong> <Link href="tel:+8801607404085">+8801607404085</Link>
             </Typography>
           </CardContent>
         </Card>
@@ -73,9 +71,8 @@ export default function TermsConditions() {
           <Section
             icon={<AssignmentIcon color="primary" sx={{ fontSize: 36 }} />}
             title="Definitions"
-            text={`“Platform” refers to the StoreLine.io website and all related applications, software, and tools.
-“User”, “You”, or “Customer” refers to any individual or business using StoreLine.io services.
-“We”, “Us”, or “Our” refers to StoreLine.io.
+            text={`“Platform” refers to the StoreLine.io website and all related applications,
+software, and tools. “User”, “You”, or “Customer” refers to any individual or business using StoreLine.io services. “We”, “Us”, or “Our” refers to StoreLine.io.
 “Subscription” refers to your paid or trial access to StoreLine.io services.`}
           />
 
@@ -184,7 +181,7 @@ function Section({ icon, title, text }: { icon: React.ReactNode; title: string; 
       sx={{
         borderRadius: 3,
         p: { xs: 2.5, md: 3 },
-        '&:hover': { boxShadow: 6, transform: 'translateY(-3px)', transition: '0.3s ease' },
+        '&:hover': { boxShadow: 6, transform: 'translateY(-3px)', transition: '0.3s ease' }
       }}
     >
       <Stack direction="row" spacing={2} alignItems="center" sx={{ mb: 1 }}>

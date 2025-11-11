@@ -77,7 +77,7 @@ export default function ContactUs4() {
         sx={{
           textAlign: 'center',
           py: { xs: 10, md: 14 },
-          background: 'linear-gradient(120deg, #5D3FD3 0%, #7F56DA 100%)',
+          background: 'linear-gradient(120deg, #005cab 0%, #0091d0 100%)',
           color: 'white',
           position: 'relative'
         }}
