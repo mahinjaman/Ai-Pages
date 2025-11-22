@@ -65,7 +65,7 @@ export const feature5 = {
       { avatar: '/assets/images/user/avatar4.png' },
       { avatar: '/assets/images/user/avatar5.png' }
     ],
-    review: '10k+ Reviews (4.5 out of 5)'
+    review: '30K Plus Fllowers.'
   },
   content: 'Explore diverse career paths within the company through our internal mobility programs.',
   actionBtn: { children: 'Explore all Features', href: '#', sx: { textTransform: 'none' } }
@@ -338,88 +338,82 @@ export const feature18 = {
 
 
 export const feature19 = {
-  heading: 'Dynamic task automation',
-  caption: 'Gain insights into performance metrics and proactively address issues for uninterrupted operations.',
-  topics: [
-    {
-      icon: 'tabler-sparkles',
-      title: 'AI Assistant',
-      title2: 'Advanced AI integration',
-      description: 'Leverage cutting-edge AI to enhance decision-making and streamline operations.',
-      image: { light: '/assets/images/graphics/ai/graphics12-light.svg', dark: '/assets/images/graphics/ai/graphics12-dark.svg' },
-      list: [
-        { primary: 'Intelligent decision support' },
-        { primary: 'Predictive analytics' },
-        { primary: 'Natural language processing' },
-        { primary: 'Real-time insights' }
-      ],
-      actionBtn: { children: 'Explore all Features', sx: { textTransform: 'none' } },
-      actionBtn2: { children: 'Customize' }
-    },
-    {
-      icon: 'tabler-chart-histogram',
-      title: 'Simple Analysis',
-      title2: 'Data lifecycle management',
-      description: 'Process data in parallel, significantly boosting data processing speed.',
-      image: { light: '/assets/images/graphics/ai/graphics7-light.svg', dark: '/assets/images/graphics/ai/graphics7-dark.svg' },
-      list: [{ primary: 'Fortress for your data' }, { primary: 'Granular access controls' }, { primary: 'Automated backup solutions' }],
-      actionBtn: { children: 'Explore all Features' },
-      actionBtn2: { children: 'Customize' }
-    },
-    {
-      icon: 'tabler-users',
-      title: 'Easy Collaboration',
-      title2: 'Seamless teamwork',
-      description: 'Foster collaboration with intuitive tools designed for team success.',
-      image: { light: '/assets/images/graphics/ai/graphics4-light.svg', dark: '/assets/images/graphics/ai/graphics4-dark.svg' },
-      list: [{ primary: 'Shared workspaces' }, { primary: 'Real-time collaboration' }, { primary: 'Task assignment and tracking' }],
-      actionBtn: { children: 'Explore all Features' },
-      actionBtn2: { children: 'Customize' }
-    },
-    {
-      icon: 'tabler-settings-up',
-      title: 'Smart Automation',
-      title2: 'Intelligent task management',
-      description: 'Automate repetitive tasks and focus on what truly matters with smart solutions.',
-      image: { light: '/assets/images/graphics/ai/graphics9-light.svg', dark: '/assets/images/graphics/ai/graphics9-dark.svg' },
-      list: [{ primary: 'Workflow automation' }, { primary: 'Trigger-based actions' }, { primary: 'Scalable solutions' }],
-      actionBtn: { children: 'Explore all Features', sx: { textTransform: 'none' } },
-      actionBtn2: { children: 'Customize' }
-    }
-  ],
+  heading: 'Features You Get',
+  caption: 'A fast, scalable, and secure platform crafted to help Bangladeshi businesses launch and grow without technical hassle.',
+  topics: [],
   actionBtn: { children: 'Buy Now', href: BUY_NOW_URL, ...linkProps },
   secondaryBtn: { children: 'Explore Blocks', href: '/' },
   features: [
     {
       icon: 'custom-brain',
-      title: 'AI-powered analytics',
-      content: 'Leverage AI for predictive insights and sales opportunities.'
+      title: 'Ultra-Fast Performance',
+      content: 'Loads in under 0.5s—built for maximum conversions.'
     },
     {
       icon: 'custom-path',
-      title: 'Journey mapping',
-      content: 'Customer experiences at every touchpoint with it.'
+      title: 'Scalable Architecture',
+      content: 'From 10 orders to 10,000—your store never slows down.'
     },
     {
-      icon: 'custom-statastic',
-      title: 'Voice & speech analytics',
-      content: 'Actionable insights from customer interactions through it.'
+      icon: 'tabler-lock',
+      title: 'Enterprise-Grade Security',
+      content: 'Secure cloud environment with continuous monitoring.'
     },
     {
       icon: 'custom-remote',
-      title: 'Sales gamification',
-      content: 'Boost sales team motivation and performance with it.'
-    },
-    {
-      icon: 'custom-lock',
-      title: 'Subscription management',
-      content: 'Effortlessly handle and optimize subscriptions with it.'
+      title: 'No-Code Store Setup',
+      content: 'Create your full e-commerce shop in just a few clicks.'
     },
     {
       icon: 'custom-interface',
-      title: 'Intuitive interface',
-      content: 'Simplify user interactions & enhance usability with it.'
+      title: 'Modern Responsive Themes',
+      content: 'Clean, beautiful layouts built to match any brand.'
+    },
+    {
+      icon: 'custom-target',
+      title: 'Auto SEO Optimization',
+      content: 'Rank higher with optimized speed, structure, and metadata.'
+    },
+    {
+      icon: 'tabler-credit-card',
+      title: 'Payments',
+      content: 'Local payment methods customers already trust.'
+    },
+    {
+      icon: 'custom-transfer',
+      title: 'Smart Courier Integration',
+      content: 'Courier booking and tracking with a single click.'
+    },
+    {
+      icon: 'custom-data',
+      title: 'Full Order Management',
+      content: 'From pending to delivered—everything in your control.'
+    },
+    {
+      icon: 'tabler-users',
+      title: 'Staff & Role Management',
+      content: 'Add team members and control who sees what.'
+    },
+    {
+      icon: 'custom-folder',
+      title: 'Unlimited Products',
+      content: 'Grow your catalog without limits or extra cost.'
+    },
+    {
+      icon: 'custom-data-switch',
+      title: 'Built-in Server-Side Tracking',
+      content: 'Track every sale with 99% accuracy—no browser loss.'
+    },
+    {
+      icon: 'tabler-chart-bar',
+      title: 'Real-Time Analytics',
+      content: 'Leverage real-time insights for improved decision-making.'
+    },
+    {
+      icon: 'tabler-help-circle',
+      title: '24/7 Live Support',
+      content: 'Real humans, ready whenever you need help.'
     }
   ],
-  image: { light: '/assets/images/graphics/ai/desktop1-light.svg', dark: '/assets/images/graphics/ai/desktop1-dark.svg' },
+  // image: { light: '/assets/images/graphics/ai/desktop1-light.svg', dark: '/assets/images/graphics/ai/desktop1-dark.svg' },
 }

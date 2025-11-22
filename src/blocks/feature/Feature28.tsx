@@ -5,6 +5,7 @@ import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
+
 // @third-party
 import { motion } from 'framer-motion';
 
@@ -52,39 +53,32 @@ interface Props {
   topics: TopicsProps[];
 }
 
-/***************************  FEATURE - 11  ***************************/
-
-/**
- *
- * Demos:
- * - [Feature11](https://www.saasable.io/blocks/feature/feature11)
- *
- * API
- * - [Feature11 API](https://phoenixcoded.gitbook.io/saasable/ui-kit/development/components/feature/feature11#props-details)
- */
+/***************************  FEATURE - 28  ***************************/
 
 export default function Feature28({ heading, caption, image, features, showBorder = true, topics }: Props) {
   const imagePadding = { xs: 3, sm: 4, md: 5 };
-  const iconProps = { type: IconType.CUSTOM };
+
+  // ⭐ FIXED — detect icon type (tabler = stroke, custom = custom)
+  const detectIconType = (iconName: string) => {
+    if (iconName.startsWith('tabler-')) return IconType.STROKE;
+    return IconType.CUSTOM;
+  };
 
   const [value, setValue] = useState<string>('1');
 
-  // Handle tab change
   const handleChange = (event: SyntheticEvent, newValue: string) => {
     setValue(newValue);
   };
 
   return (
-    <ContainerWrapper sx={{ py: SECTION_COMMON_PY }}>
+    <ContainerWrapper sx={{ py: SECTION_COMMON_PY }} id="features">
       <Stack sx={{ gap: { xs: 3, sm: 4 } }}>
+        {/* Heading Section */}
         <motion.div
           initial={{ opacity: 0, y: 5 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{
-            duration: 0.3,
-            delay: 0.3
-          }}
+          transition={{ duration: 0.3, delay: 0.3 }}
         >
           <Typeset
             {...{
@@ -94,6 +88,8 @@ export default function Feature28({ heading, caption, image, features, showBorde
             }}
           />
         </motion.div>
+
+        {/* Tabs Section */}
         <Stack sx={{ gap: 1.5, alignItems: 'center' }}>
           <TabContext value={value}>
             <GraphicsCard sx={{ width: { xs: 1, sm: 'unset' } }}>
@@ -105,22 +101,19 @@ export default function Feature28({ heading, caption, image, features, showBorde
                 >
                   {topics.map((item, index) => (
                     <Tab
-                      label={item.title}
-                      disableFocusRipple
-                      {...(item.icon && {
-                        icon: (
-                          <SvgIcon
-                            {...(typeof item.icon === 'string' ? { name: item.icon } : { ...item.icon })}
-                            size={16}
-                            stroke={2}
-                            color="text.secondary"
-                          />
-                        )
-                      })}
-                      value={String(index + 1)}
                       key={index}
+                      label={item.title}
+                      value={String(index + 1)}
+                      icon={
+                        <SvgIcon
+                          {...(typeof item.icon === 'string' ? { name: item.icon } : { ...item.icon })}
+                          size={16}
+                          stroke={2}
+                          color="text.secondary"
+                        />
+                      }
                       iconPosition="start"
-                      tabIndex={0}
+                      disableFocusRipple
                       sx={{
                         minHeight: 44,
                         minWidth: { xs: 112, md: 160, sm: 156 },
@@ -132,11 +125,9 @@ export default function Feature28({ heading, caption, image, features, showBorde
                         '&.Mui-selected': {
                           bgcolor: 'grey.200',
                           borderColor: 'grey.400',
-                          minWidth: { xs: 112, md: 160, sm: 156 },
                           color: 'text.primary',
                           '& svg': { stroke: 'text.primary' }
                         },
-                        '&.Mui-focusVisible': { bgcolor: 'grey.300' },
                         '&:hover': { bgcolor: 'grey.200' }
                       }}
                     />
@@ -147,16 +138,14 @@ export default function Feature28({ heading, caption, image, features, showBorde
           </TabContext>
         </Stack>
 
+        {/* Feature Cards Section */}
         <Stack sx={{ gap: 1.5 }}>
           {image && (
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{
-                duration: 0.3,
-                delay: 0.3
-              }}
+              transition={{ duration: 0.3, delay: 0.3 }}
             >
               <GraphicsCard>
                 <Box sx={{ pl: imagePadding, pt: imagePadding, height: { xs: 204, sm: 300, md: 360 } }}>
@@ -180,6 +169,7 @@ export default function Feature28({ heading, caption, image, features, showBorde
               </GraphicsCard>
             </motion.div>
           )}
+
           <Grid container spacing={1.5}>
             {features.map((item, index) => (
               <Grid key={index} size={{ xs: 12, sm: 6, md: 4 }}>
@@ -187,13 +177,13 @@ export default function Feature28({ heading, caption, image, features, showBorde
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{
-                    duration: 0.3,
-                    delay: item.animationDelay
-                  }}
+                  transition={{ duration: 0.3, delay: item.animationDelay }}
                 >
                   <IconCard
-                    icon={{ ...(typeof item.icon === 'string' ? { name: item.icon, ...iconProps } : { ...iconProps, ...item.icon }) }}
+                    icon={{
+                      name: item.icon as string,
+                      type: detectIconType(item.icon as string)
+                    }}
                     title={item.title}
                     content={item.content}
                     contentCard

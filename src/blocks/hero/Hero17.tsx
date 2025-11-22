@@ -242,7 +242,7 @@ export default function Hero17({ chip, headLine, captionLine, primaryBtn, videoS
                 height="100%"
                 style={{ display: 'flex', objectFit: 'cover' }}
                 preload="metadata"
-                autoPlay={false}
+                autoPlay
                 loop={true}
                 muted={true}
                 poster={videoThumbnail}

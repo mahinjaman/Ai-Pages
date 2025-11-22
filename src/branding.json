@@ -3,7 +3,7 @@
   "title": "Ready to use E-commerce website",
   "company": {
     "name": "Storeline.io",
-    "url": "https://storeline.io.net",
+    "url": "https://storeline.io",
     "socialLink": {
       "linkedin": "https://in.linkedin.com/company/storeline.io",
       "instagram": "#",
@@ -12,12 +12,12 @@
       "github": "https://github.com/storeline.io",
       "dribble": "https://dribbble.com/storeline.io",
       "discord": "https://discord.gg",
-      "support": "https://support.storeline.io.net"
+      "support": "https://storeline.io"
     }
   },
   "logo": {
     "main": "",
-    "logoIcon": "",
+    "logoIcon": "/assets/gif/loading.gif",
     "logoFab": "",
     "logoWatermark": ""
   }

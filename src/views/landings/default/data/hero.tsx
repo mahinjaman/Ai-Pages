@@ -30,7 +30,7 @@ export const hero = {
   headLine: 'The All-in-One Serverless E-commerce Platform',
   captionLine: 'Finally, an e-commerce platform that truly understands the Bangladeshi market and its unique challenges',
   primaryBtn: { children: 'Get Started — It’s Free', href: '/' },
-  videoSrc: 'https://d2elhhoq00m1pj.cloudfront.net/saasable-intro.mp4',
+  videoSrc: 'https://res.cloudinary.com/daznmhjxi/video/upload/v1763717295/storeline_io_ivenae.mp4',
   videoThumbnail: '/assets/videos/thumbnails/intro-thumbnail.png',
   listData: [
     { image: '/assets/images/shared/react.svg', title: 'React 19' },
