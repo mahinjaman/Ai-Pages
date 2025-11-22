@@ -68,7 +68,7 @@ export default function Clientele8({ heading, caption, clienteleList }: Props) {
           transition={{ duration: 0.5, delay: 0.4 }}
         >
           <Typeset
-            {...{ heading, caption, stackProps: { sx: { textAlign: 'center' } }, captionProps: { sx: { width: 700, mx: 'auto' } } }}
+            {...{ heading, caption, stackProps: { sx: { textAlign: 'center' } }, captionProps: { sx: { maxWidth: 700, mx: 'auto' } } }}
           />
         </motion.div>
 

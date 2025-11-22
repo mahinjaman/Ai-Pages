@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 
 // @mui
-import { alpha, useTheme } from '@mui/material/styles';
+// import { alpha, useTheme } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Timeline from '@mui/lab/Timeline';
@@ -16,12 +16,12 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
 // @project
-import { GraphicsCard } from '@/components/cards';
+// import { GraphicsCard } from '@/components/cards';
 import ContainerWrapper from '@/components/ContainerWrapper';
-import GraphicsImage from '@/components/GraphicsImage';
+// import GraphicsImage from '@/components/GraphicsImage';
 import SvgIcon from '@/components/SvgIcon';
 import Typeset from '@/components/Typeset';
-import { ThemeDirection } from '@/config';
+// import { ThemeDirection } from '@/config';
 import { SECTION_COMMON_PY } from '@/utils/constant';
 
 // @types
@@ -93,12 +93,12 @@ interface Props {
  */
 
 export default function Process4({ heading, caption, cards, isTimeline = true }: Props) {
-  const theme = useTheme();
-  const grey100 = theme.palette.grey[100];
-  const gradient =
-    theme.direction === ThemeDirection.RTL
-      ? `radial-gradient(78.19% 21.81% at 50% 50%, ${alpha(grey100, 0)} 0%, ${grey100} 100%)`
-      : `radial-gradient(78.19% 78.19% at 50% 50%, ${alpha(grey100, 0)} 0%, ${grey100} 100%)`;
+  // const theme = useTheme();
+  // const grey100 = theme.palette.grey[100];
+  // const gradient =
+  //   theme.direction === ThemeDirection.RTL
+  //     ? `radial-gradient(78.19% 21.81% at 50% 50%, ${alpha(grey100, 0)} 0%, ${grey100} 100%)`
+  //     : `radial-gradient(78.19% 78.19% at 50% 50%, ${alpha(grey100, 0)} 0%, ${grey100} 100%)`;
 
   const [activeStep, setActiveStep] = useState<number>(0);
 
@@ -122,7 +122,7 @@ export default function Process4({ heading, caption, cards, isTimeline = true }:
           {...{ heading, caption, stackProps: { sx: { textAlign: 'center' } }, captionProps: { sx: { maxWidth: 700, mx: 'auto' } } }}
         />
         <Grid container spacing={{ sm: 2, md: 3 }}>
-          <Grid size={{ xs: 12, sm: 6 }}>
+          {/* <Grid size={{ xs: 12, sm: 6 }}>
             <GraphicsCard sx={{ minHeight: { xs: 314, sm: 400, md: 408 }, height: 1 }}>
               <GraphicsImage
                 image={cards[activeStep].image!}
@@ -137,7 +137,7 @@ export default function Process4({ heading, caption, cards, isTimeline = true }:
                 <Box sx={{ height: 1, background: gradient }} />
               </GraphicsImage>
             </GraphicsCard>
-          </Grid>
+          </Grid> */}
           <Grid size={{ xs: 12, sm: 6 }}>
             <Stack direction="row" sx={{ alignItems: 'center', height: 1 }}>
               <TimelineCard {...{ cards, isTimeline, activeStep, handleStep }} />
