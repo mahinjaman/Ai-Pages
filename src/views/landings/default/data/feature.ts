@@ -65,7 +65,7 @@ export const feature5 = {
       { avatar: '/assets/images/user/avatar4.png' },
       { avatar: '/assets/images/user/avatar5.png' }
     ],
-    review: '30K Plus Fllowers.'
+    review: '30K Plus Followers.'
   },
   content: 'Explore diverse career paths within the company through our internal mobility programs.',
   actionBtn: { children: 'Explore all Features', href: '#', sx: { textTransform: 'none' } }
