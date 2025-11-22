@@ -2,8 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
-// @mui
-// import { alpha, useTheme } from '@mui/material/styles';
+import { alpha, useTheme } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Timeline from '@mui/lab/Timeline';
@@ -15,33 +14,20 @@ import TimelineDot from '@mui/lab/TimelineDot';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
-// @project
-// import { GraphicsCard } from '@/components/cards';
+import { GraphicsCard } from '@/components/cards';
 import ContainerWrapper from '@/components/ContainerWrapper';
-// import GraphicsImage from '@/components/GraphicsImage';
+import GraphicsImage from '@/components/GraphicsImage';
 import SvgIcon from '@/components/SvgIcon';
 import Typeset from '@/components/Typeset';
-// import { ThemeDirection } from '@/config';
+import { ThemeDirection } from '@/config';
 import { SECTION_COMMON_PY } from '@/utils/constant';
 
-// @types
-import { ProcessCardProps } from '@/types/process';
+const autoChangeInterval = 5000;
 
-const autoChangeInterval = 5000; // Change accordion every 3 seconds
-
-interface CardProps {
-  cards: ProcessCardProps[];
-  isTimeline?: boolean;
-  activeStep: number;
-  handleStep: (step: number) => void;
-}
-
-/***************************  PROCESS - CARD  ***************************/
-
-function TimelineCard({ cards, isTimeline, activeStep, handleStep }: CardProps) {
+function TimelineCard({ cards, isTimeline, activeStep, handleStep }: any) {
   return (
     <Timeline sx={{ [`& .${timelineItemClasses.root}:before`]: { flex: 0, padding: 0 }, p: 0, mb: 0, mt: { xs: 4, sm: 0 } }}>
-      {cards.map((card, index) => (
+      {cards.map((card: any, index: number) => (
         <Box key={index} onClick={() => handleStep(index)}>
           <TimelineItem sx={{ cursor: 'pointer', color: activeStep == index ? 'primary.main' : 'inherit' }}>
             {isTimeline && (
@@ -74,31 +60,14 @@ function TimelineCard({ cards, isTimeline, activeStep, handleStep }: CardProps) 
   );
 }
 
-interface Props {
-  heading: string;
-  caption: string;
-  cards: ProcessCardProps[];
-  isTimeline?: boolean;
-}
+export default function Process4({ heading, caption, cards, isTimeline = true }: any) {
+  const theme = useTheme();
+  const grey100 = theme.palette.grey[100];
 
-/***************************  PROCESS - 4  ***************************/
-
-/**
- *
- * Demos:
- * - [Process4](https://www.saasable.io/blocks/process/process4)
- *
- * API
- * - [Process4 API](https://phoenixcoded.gitbook.io/saasable/ui-kit/development/components/process/process4#props-details)
- */
-
-export default function Process4({ heading, caption, cards, isTimeline = true }: Props) {
-  // const theme = useTheme();
-  // const grey100 = theme.palette.grey[100];
-  // const gradient =
-  //   theme.direction === ThemeDirection.RTL
-  //     ? `radial-gradient(78.19% 21.81% at 50% 50%, ${alpha(grey100, 0)} 0%, ${grey100} 100%)`
-  //     : `radial-gradient(78.19% 78.19% at 50% 50%, ${alpha(grey100, 0)} 0%, ${grey100} 100%)`;
+  const gradient =
+    theme.direction === ThemeDirection.RTL
+      ? `radial-gradient(78.19% 21.81% at 50% 50%, ${alpha(grey100, 0)} 0%, ${grey100} 100%)`
+      : `radial-gradient(78.19% 78.19% at 50% 50%, ${alpha(grey100, 0)} 0%, ${grey100} 100%)`;
 
   const [activeStep, setActiveStep] = useState<number>(0);
 
@@ -106,10 +75,9 @@ export default function Process4({ heading, caption, cards, isTimeline = true }:
     setActiveStep(step);
   };
 
-  // Update the active step at regular intervals
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveStep((prevActiveStep) => (prevActiveStep + 1) % cards.length);
+      setActiveStep((prev) => (prev + 1) % cards.length);
     }, autoChangeInterval);
 
     return () => clearInterval(interval);
@@ -119,28 +87,43 @@ export default function Process4({ heading, caption, cards, isTimeline = true }:
     <ContainerWrapper sx={{ py: SECTION_COMMON_PY }}>
       <Stack sx={{ gap: { xs: 3, sm: 4 } }}>
         <Typeset
-          {...{ heading, caption, stackProps: { sx: { textAlign: 'center' } }, captionProps: { sx: { maxWidth: 700, mx: 'auto' } } }}
+          {...{
+            heading,
+            caption,
+            stackProps: { sx: { textAlign: 'center' } },
+            captionProps: { sx: { maxWidth: 700, mx: 'auto' } }
+          }}
         />
-        <Grid container spacing={{ sm: 2, md: 3 }}>
-          {/* <Grid size={{ xs: 12, sm: 6 }}>
-            <GraphicsCard sx={{ minHeight: { xs: 314, sm: 400, md: 408 }, height: 1 }}>
+
+        <Grid
+          container
+          spacing={{ sm: 2, md: 3 }}
+          sx={{
+            display: { xs: 'inline-block', sm: 'flex' }
+          }}
+        >
+          <Grid size={{ xs: 12, sm: 6 }}>
+            <GraphicsCard sx={{ height: { xs: 300, sm: 400, md: 420 } }}>
               <GraphicsImage
-                image={cards[activeStep].image!}
+                image={cards[activeStep].image}
                 sx={{
+                  width: 1,
                   height: 1,
-                  backgroundPositionX: { xs: '0%', sm: '-25%', md: '20%' },
-                  transform: { xs: 'scale(1.2)', sm: 'scale(1)', md: 'scale(1.25)' },
-                  backgroundPositionY: 'top',
-                  backgroundSize: 'contain'
+                  backgroundRepeat: 'no-repeat',
+                  backgroundSize: { xs: 'cover', sm: 'contain' },
+                  backgroundPosition: { xs: 'center', sm: 'top' },
+                  transform: { xs: 'scale(1)', sm: 'scale(1)', md: 'scale(1.25)' },
+                  backgroundPositionX: { sm: '-25%', md: '20%' }
                 }}
               >
                 <Box sx={{ height: 1, background: gradient }} />
               </GraphicsImage>
             </GraphicsCard>
-          </Grid> */}
+          </Grid>
+
           <Grid size={{ xs: 12, sm: 6 }}>
             <Stack direction="row" sx={{ alignItems: 'center', height: 1 }}>
-              <TimelineCard {...{ cards, isTimeline, activeStep, handleStep }} />
+              <TimelineCard cards={cards} isTimeline={isTimeline} activeStep={activeStep} handleStep={handleStep} />
             </Stack>
           </Grid>
         </Grid>

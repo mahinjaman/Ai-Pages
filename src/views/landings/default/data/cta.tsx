@@ -83,7 +83,7 @@ export const cta10 = {
       { avatar: '/assets/images/user/avatar4.png' },
       { avatar: '/assets/images/user/avatar5.png' }
     ],
-    review: '30K Plus Fllowers.'
+    review: '30K Plus Followers.'
   }
 };
 
