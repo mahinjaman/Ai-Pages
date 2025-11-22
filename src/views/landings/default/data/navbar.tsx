@@ -8,7 +8,7 @@ const linkProps = { target: '_blank', rel: 'noopener noreferrer' };
 
 const navItems = [
   { id: 'home', title: 'Home', link: '/' },
-  { id: 'features', title: 'Features', link: '#features' },
+  { id: 'features', title: 'Features', link: '/#features' },
   { id: 'pricing', title: 'Pricing', link: PAGE_PATH.pricingPage },
   { id: 'templates', title: 'Templates', link: PAGE_PATH.templatesPage },
   pagesMegamenu
