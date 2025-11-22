@@ -83,7 +83,7 @@ export default function Faq6({ heading, caption, defaultExpanded, faqList, getIn
                   <ButtonAnimationWrapper>
                     <Button
                       variant="contained"
-                      size="large"
+                      size="medium"
                       {...getInTouch.link}
                       {...(getInTouch.link && getInTouch.link.href && { component: NextLink })}
                       sx={{ minWidth: 215, ...getInTouch.link.sx }}

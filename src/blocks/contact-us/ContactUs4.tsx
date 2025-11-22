@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Avatar, Box, Button, Card, Container, Grid, Stack, TextField, Typography, Link } from '@mui/material';
+
 import EmailIcon from '@mui/icons-material/EmailOutlined';
 import PhoneIcon from '@mui/icons-material/PhoneOutlined';
 import LocationOnIcon from '@mui/icons-material/LocationOnOutlined';
@@ -12,21 +13,31 @@ function InfoCard({ icon, label, value, link }: { icon: React.ReactNode; label: 
   return (
     <motion.div whileHover={{ y: -3 }} transition={{ duration: 0.3 }}>
       <Card
-        sx={{
+        sx={(theme) => ({
           p: 3,
           borderRadius: 3,
           display: 'flex',
           alignItems: 'center',
           gap: 2,
-          bgcolor: '#fff',
-          boxShadow: '0 4px 14px rgba(0,0,0,0.06)'
-        }}
+          bgcolor: theme.palette.background.paper,
+          boxShadow: theme.palette.mode === 'dark' ? '0 4px 14px rgba(0,0,0,0.5)' : '0 4px 14px rgba(0,0,0,0.06)'
+        })}
       >
-        <Avatar sx={{ bgcolor: 'primary.main', width: 48, height: 48 }}>{icon}</Avatar>
+        <Avatar
+          sx={(theme) => ({
+            bgcolor: theme.palette.primary.main,
+            width: 48,
+            height: 48
+          })}
+        >
+          {icon}
+        </Avatar>
+
         <Box>
           <Typography variant="body2" sx={{ color: 'text.secondary' }}>
             {label}
           </Typography>
+
           {link ? (
             <Link href={link} target="_blank" rel="noopener" underline="hover" sx={{ display: 'block', fontWeight: 600, mt: 0.3 }}>
               {value}
@@ -46,21 +57,23 @@ function ContactForm() {
   return (
     <Card
       elevation={6}
-      sx={{
+      sx={(theme) => ({
         p: { xs: 3, sm: 5 },
         borderRadius: 4,
-        bgcolor: '#fff',
-        boxShadow: '0 8px 20px rgba(0,0,0,0.06)'
-      }}
+        bgcolor: theme.palette.background.paper,
+        boxShadow: theme.palette.mode === 'dark' ? '0 8px 20px rgba(0,0,0,0.5)' : '0 8px 20px rgba(0,0,0,0.06)'
+      })}
     >
       <Typography variant="h5" sx={{ fontWeight: 700, mb: 3, textAlign: 'center' }}>
         Send us a message
       </Typography>
+
       <Stack spacing={2.5}>
         <TextField label="Full Name *" fullWidth required />
         <TextField label="Email Address *" fullWidth type="email" required />
         <TextField label="Subject" fullWidth />
         <TextField label="Message *" fullWidth multiline rows={4} required />
+
         <Button size="large" variant="contained" endIcon={<SendIcon />} sx={{ borderRadius: 3, fontWeight: 600 }}>
           Send Message
         </Button>
@@ -71,16 +84,23 @@ function ContactForm() {
 
 export default function ContactUs4() {
   return (
-    <Box sx={{ backgroundColor: '#F9FAFB' }}>
-      {/* ✅ Hero Section Fixed */}
+    <Box
+      sx={(theme) => ({
+        backgroundColor: theme.palette.background.default
+      })}
+    >
+      {/* HERO HEADER SECTION */}
       <Box
-        sx={{
+        sx={(theme) => ({
           textAlign: 'center',
           py: { xs: 10, md: 14 },
-          background: 'linear-gradient(120deg, #005cab 0%, #0091d0 100%)',
-          color: 'white',
+          background:
+            theme.palette.mode === 'dark'
+              ? 'linear-gradient(120deg, #001e3c 0%, #003a75 100%)'
+              : 'linear-gradient(120deg, #005cab 0%, #0091d0 100%)',
+          color: theme.palette.text.primary,
           position: 'relative'
-        }}
+        })}
       >
         <Container maxWidth="md">
           <motion.div
@@ -92,6 +112,7 @@ export default function ContactUs4() {
             <Typography variant="h3" sx={{ fontWeight: 800, mb: 1, lineHeight: 1.3 }}>
               Get in Touch with StoreLine.io
             </Typography>
+
             <Typography
               variant="body1"
               sx={{
@@ -105,30 +126,30 @@ export default function ContactUs4() {
           </motion.div>
         </Container>
 
-        {/* Decorative subtle wave transition */}
+        {/* wave transition */}
         <Box
-          sx={{
+          sx={(theme) => ({
             position: 'absolute',
             bottom: -40,
             left: 0,
             right: 0,
             height: 80,
-            backgroundColor: '#F9FAFB',
+            backgroundColor: theme.palette.background.default,
             borderTopLeftRadius: '50% 20%',
             borderTopRightRadius: '50% 20%'
-          }}
+          })}
         />
       </Box>
 
-      {/* ✅ Contact Section */}
+      {/* BODY SECTION */}
       <Container maxWidth="lg" sx={{ mt: { xs: -5, md: -8 }, pb: 10, position: 'relative' }}>
         <Card
-          sx={{
+          sx={(theme) => ({
             borderRadius: 4,
             p: { xs: 3, sm: 5, md: 6 },
-            boxShadow: '0 8px 25px rgba(0,0,0,0.08)',
-            background: '#fff'
-          }}
+            background: theme.palette.background.paper,
+            boxShadow: theme.palette.mode === 'dark' ? '0 8px 25px rgba(0,0,0,0.5)' : '0 8px 25px rgba(0,0,0,0.08)'
+          })}
         >
           <Grid container spacing={4}>
             <Grid size={{ xs: 12, md: 6 }}>

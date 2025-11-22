@@ -54,7 +54,7 @@ export default function Metrics3({ bgImage, heading, caption, exploreBtn, blockD
           <GraphicsCard {...(bgImage && { overLay: true, bgImage })} sx={{ height: 1, p: { xs: 3, sm: 4, md: 5 } }}>
             <Stack sx={{ gap: 4, alignItems: 'flex-start', justifyContent: 'space-between', height: 1 }}>
               <Typeset {...{ heading, caption, textAlign: 'left', stackProps: { sx: { gap: { xs: 1, md: 1.5 } } } }} />
-              {exploreBtn && <Button color="primary" size="large" variant="contained" {...exploreBtn} />}
+              {exploreBtn && <Button color="primary" size="medium" variant="contained" {...exploreBtn} />}
             </Stack>
           </GraphicsCard>
         </Grid>

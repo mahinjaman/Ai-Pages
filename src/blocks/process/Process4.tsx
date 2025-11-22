@@ -118,7 +118,9 @@ export default function Process4({ heading, caption, cards, isTimeline = true }:
   return (
     <ContainerWrapper sx={{ py: SECTION_COMMON_PY }}>
       <Stack sx={{ gap: { xs: 3, sm: 4 } }}>
-        <Typeset {...{ heading, caption, stackProps: { sx: { textAlign: 'center' } } }} />
+        <Typeset
+          {...{ heading, caption, stackProps: { sx: { textAlign: 'center' } }, captionProps: { sx: { maxWidth: 700, mx: 'auto' } } }}
+        />
         <Grid container spacing={{ sm: 2, md: 3 }}>
           <Grid size={{ xs: 12, sm: 6 }}>
             <GraphicsCard sx={{ minHeight: { xs: 314, sm: 400, md: 408 }, height: 1 }}>

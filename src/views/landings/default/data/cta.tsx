@@ -71,10 +71,9 @@ export const cta5 = {
 };
 
 export const cta10 = {
-  heading: 'Haven’t Started Yet? It’s Your Time.',
+  heading: 'It’s Your Time.',
   caption: 'You focus on your products, we’ll handle the tech. That’s how thousands of Bangladeshi sellers are trusted with StoreLine.',
-  primaryBtn: { children: 'Send your Resume', href: '#', sx: { textTransform: 'none' } },
-  secondaryBtn: { children: 'Contact us', href: '/contact', sx: { textTransform: 'none' } },
+  primaryBtn: { children: 'Get Start', href: '/login', sx: { textTransform: 'none' } },
   image: { light: '/assets/images/graphics/ai/graphics15-light.svg', dark: '/assets/images/graphics/ai/graphics15-dark.svg' },
   profileGroups: {
     avatarGroups: [
@@ -84,7 +83,7 @@ export const cta10 = {
       { avatar: '/assets/images/user/avatar4.png' },
       { avatar: '/assets/images/user/avatar5.png' }
     ],
-    review: '10k+ Reviews (4.5 out of 5)'
+    review: '30K Plus Fllowers.'
   }
 };
 

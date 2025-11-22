@@ -83,7 +83,8 @@ export default function Cta10({ heading, caption, primaryBtn, profileGroups, lis
                     caption,
                     captionProps: { sx: { maxWidth: 420 }, variant: 'body1' },
                     stackProps: { sx: { gap: 1 } },
-                    headingProps: { sx: { maxWidth: { xs: 265, sm: 420 } } }
+                    headingProps: { sx: { width: '100%', textAlign: 'start' } },
+                    textAlign: 'left'
                   }}
                 />
               </motion.div>
@@ -99,13 +100,13 @@ export default function Cta10({ heading, caption, primaryBtn, profileGroups, lis
                 <Stack sx={{ gap: { xs: 1, sm: 1.5 }, alignItems: 'flex-start' }}>
                   <Stack direction="row" sx={{ gap: 1.5 }}>
                     <ButtonAnimationWrapper>
-                      <Button color="primary" size="large" variant="contained" {...primaryBtn} />
+                      <Button
+                        color="primary"
+                        variant="contained"
+                        startIcon={<SvgIcon name="tabler-sparkles" size={16} stroke={3} color="background.default" />}
+                        {...primaryBtn}
+                      />
                     </ButtonAnimationWrapper>
-                    {secondaryBtn && (
-                      <ButtonAnimationWrapper>
-                        <Button color="primary" size="large" variant="outlined" {...secondaryBtn} />
-                      </ButtonAnimationWrapper>
-                    )}
                   </Stack>
                   <Stack direction="row" sx={{ gap: 4.75 }}>
                     {list &&

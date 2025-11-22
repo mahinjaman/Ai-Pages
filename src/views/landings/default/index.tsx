@@ -17,6 +17,7 @@ import { metrics3 } from './data/metrics';
 import Feature28 from '@/blocks/feature/Feature28';
 import { feature19 } from './data/feature';
 import { process1 } from './data/process';
+import { Box } from '@mui/material';
 // import { testimonial2 } from './data/testimonial';
 
 /***************************  PAGE - MAIN  ***************************/
@@ -63,14 +64,17 @@ export default function Main() {
         sections={[{ importFunc: () => import('@/blocks/metrics').then((module) => ({ default: module.Metrics3 })), props: metrics3 }]}
         offset="200px"
       />
-      <Feature28 {...feature19} />
+
+      <Box id="features">
+        <Feature28 {...feature19} />
+      </Box>
+
       <LazySection
         sections={[
           { importFunc: () => import('@/blocks/process').then((module) => ({ default: module.Process4 })), props: process1 },
           { importFunc: () => import('@/blocks/integration').then((module) => ({ default: module.Integration3 })), props: integration }
 
           // { importFunc: () => import('@/blocks/testimonial').then((module) => ({ default: module.Testimonial2 })), props: testimonial2 }
-
         ]}
         offset="200px"
       />
